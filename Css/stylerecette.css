@@ -1,0 +1,191 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://img.freepik.com/vecteurs-libre/fond-boulangerie-dessine-main_23-2148136973.jpg?w=1380&t=st=1673787937~exp=1673788537~hmac=05ffb494f9eca21b8ad345ed45169f6610696eb97a6f38b93371e9ea88f8006a);  
+    background-size: cover;
+}
+body p{
+    font-size: 25px;
+    font-family: cursive;
+}
+form{
+    text-align: center;
+    background: white;
+  border: 5px solid black;
+  -moz-border-radius: 10px; /* Mozilla (Firefox) */
+  -webkit-border-radius: 10px; /* Chrome, Safari, iPhone, Android, etc. */
+  border-radius: 10px; /* Internet Explorer 9, Opera */
+  margin: 20px;
+  }
+
+.selection_haute{
+    display: flex;
+    flex-direction: column;
+    background-color:rgba(212, 212, 212,0.9);
+    font-family: cursive;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    border: 5px solid black; 
+}
+
+
+
+
+
+
+
+
+.selection_milleu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 100px;
+    background-color:rgba(212, 212, 212,0.9);
+    border: 5px solid black;
+}
+.les_listes{
+    display: flex;
+    flex-direction: column;
+
+}
+.la_liste_ingredients{
+    font-size: 20px;
+}
+.la_liste_ustensiles{
+    font-size: 20px;
+}
+.image_galette{
+    display: flex;
+
+}
+.galette_des_rois{
+    width: 700px;
+    height : 700px;
+
+}
+
+
+
+
+
+
+
+.selection_basse{
+    background-color:rgba(212, 212, 212,0.9);
+    margin: 50px;
+    border: 5px solid black;
+}
+.explication{
+    text-align: center
+}
+
+.Coûte{
+    text-align: right;
+}
+.auteur{
+    text-align: center;
+}
+
+
+
+
+
+.Com{
+    display: flex;
+    flex-direction: row;
+    background-color:rgba(212, 212, 212,0.9);
+    margin: 20px;
+    border: 5px solid black;
+
+}
+
+.Photo_de_profil_com{
+    width: 100px;
+    height : 100px;
+
+}
+.Mes_not_com{
+display: flex;
+flex-direction: column;
+margin: 50px;
+}
+.Mes_not_com p{
+    font-size: 15px;
+}
+
+/* Barre de navigation  */
+
+
+.barre_de_nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(119,77,37);;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+.barre_de_nav li {
+    float: left;
+    border-right:1px solid #bbb;
+  }
+  
+.barre_de_nav  li:last-child {
+    border-right: none;
+  }
+  
+.barre_de_nav  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+.barre_de_nav li a:hover:not(.active) {
+    background-color: rgb(119,77,37);
+  }
+  
+  .active {
+    background-color: #444;
+  }
+  .backgroundimage{
+    background:url(/zimage/croco.jpg);
+        
+  }
+  
+
+.barre_de_nav ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.barre_de_nav ul.topnav li {float: left;}
+
+.barre_de_nav ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.barre_de_nav ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+.barre_de_nav ul.topnav li a.active {background-color: #444;}
+
+.barre_de_nav ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+    .barre_de_nav ul.topnav li.right, 
+    .barre_de_nav ul.topnav li {float: none;}
+}
+
+
+
