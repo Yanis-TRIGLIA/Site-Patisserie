@@ -11,19 +11,19 @@ final class Appreciation{
             self::$req_prep1 = modele::$pdo->prepare(self::$sql1);
         self::$req_prep1->execute(array($id));
         $row = self::$req_prep1->fetch();
-        return new Appreciation($id,Recipe::getById($row['ID_RECIPE']),User::getById($row['ID_AUTHOR']),$row['PUBLICATION_DATE'],$row['GRADE'],$row['COMMENTARY']);
+        return new Appreciation($id,$row['ID_RECIPE'],User::getById($row['ID_AUTHOR']),$row['PUBLICATION_DATE'],$row['GRADE'],$row['COMMENTARY']);
     }
 
     private $id;
-    private $recipe;
+    private $id_recipe;
     private $author;
     private $publication_date;
     private $grade;
     private $commentary;
 
-    private function __construct($id, $recipe, $author,$publication_date, $grade, $commentary){
+    private function __construct($id, $id_recipe, $author,$publication_date, $grade, $commentary){
         $this-> id = $id;
-        $this->recipe = $recipe;
+        $this->id_recipe = $id_recipe;
         $this->author = $author;
         $this-> publication_date= $publication_date;
         $this-> grade= $grade;
@@ -34,8 +34,8 @@ final class Appreciation{
         return $this->id;
     }
 
-    public function getRecipe(){
-        return $this->recipe;
+    public function getIdRecipe(){
+        return $this->id_recipe;
     }
     public function getAuthor(){
         return $this->author;              
@@ -54,7 +54,7 @@ final class Appreciation{
     }
 
     public function __toString() {
-        return "Appreciation{id=" . $this->getId() . ", recipe=" . $this->getRecipe() .", author=" . $this->getAuthor(). ", date=" . $this->getDate() . ", grade=" . $this->getGrade() . ", commentary=" . $this->getCommentary(). "}";
+        return "Appreciation{id=" . $this->getId() . ", recipe=" . $this->getIdRecipe() .", author=" . $this->getAuthor(). ", date=" . $this->getDate() . ", grade=" . $this->getGrade() . ", commentary=" . $this->getCommentary(). "}";
     }
 
 }
