@@ -4,6 +4,7 @@ final class ControleurRecipe
 {
     public function defautAction()
     {
+
         $O_recipe = Recipe::getById(1);
         Vue::montrer('standard/entete', array('recipe'=> $O_recipe->getName()));
         Vue::montrer('standard/navbar');
@@ -50,4 +51,6 @@ final class ControleurRecipe
         }
         $average = $sum/sizeof($appreciations);
     }
+
+   
 }
