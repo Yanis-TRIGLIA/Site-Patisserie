@@ -37,7 +37,7 @@ final class Recipe{
         $appreciations = array();
         while ($idAppreciation = self::$req_prep4->fetch())
             array_push($appreciations, Appreciation::getById($idAppreciation['ID_APPRECIATION']));
-        return new Recipe($id, $row['NAME'],$row ['DESCRIPTION'], $row['DURATION'], User::getById($row['ID_AUTHOR']), Difficulty::getById($row['ID_DIFFICULTY']), Cost::getById($row['ID_COST']), $ustensils, $ingredients, $appreciations, $row['IMAGE_URL']);
+        return new Recipe($id, $row['NAME'],explode('\n', $row['DESCRIPTION']), $row['DURATION'], User::getById($row['ID_AUTHOR']), Difficulty::getById($row['ID_DIFFICULTY']), Cost::getById($row['ID_COST']), $ustensils, $ingredients, $appreciations, $row['IMAGE_URL']);
     }
 
     private $id;
@@ -111,7 +111,7 @@ final class Recipe{
     }
 
     public function __toString() {
-        return "Recipe{id=" . $this->getId() . ", name=" . $this->getName() . ", description=" . $this->getDescription() . ", duration=" . $this->getDuration() . ", author=" . $this->getAuthor() . ", difficulty=" . $this->getDifficulty() . ", cost=" . $this->getCost() . ", ustensils=" . implode($this->getUstencils()) .", ingredient=" .implode($this->getIngredients()) . ", appreciations=" . implode($this->getAppreciations()) . ", imageUrl=" . $this->getImageUrl() . "}";
+        return "Recipe{id=" . $this->getId() . ", name=" . $this->getName() . ", description=" . implode($this->getDescription()) . ", duration=" . $this->getDuration() . ", author=" . $this->getAuthor() . ", difficulty=" . $this->getDifficulty() . ", cost=" . $this->getCost() . ", ustensils=" . implode($this->getUstencils()) .", ingredient=" .implode($this->getIngredients()) . ", appreciations=" . implode($this->getAppreciations()) . ", imageUrl=" . $this->getImageUrl() . "}";
     }
 
 
