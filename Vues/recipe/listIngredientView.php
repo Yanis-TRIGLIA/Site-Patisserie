@@ -1,5 +1,4 @@
 <?php
-//TODO REFACTORE AVEC listIngredientView
 echo '<div class="selection_milleu">';
 echo '<div class="les_listes">';
 echo '<div class ="Ingredients">';

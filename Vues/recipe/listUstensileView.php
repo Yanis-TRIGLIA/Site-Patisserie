@@ -1,5 +1,4 @@
 <?php
-//TODO REFACTORE AVEC listUstensileView
 echo '<div classe="Ustensiles">';
 echo '<p><strong>Ustensiles :</strong></p>';
 echo '<ul class="la_liste_ustensiles">';

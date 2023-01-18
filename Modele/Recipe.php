@@ -92,7 +92,7 @@ final class Recipe{
         return $this->cost;              
     }
 
-    public function getUstencils(){
+    public function getUstensils(){
         return $this->ustensils;             
     }
 
@@ -105,7 +105,7 @@ final class Recipe{
     }
 
     public function __toString() {
-    return "Recipe{id=" . $this->getId() . ", name=" . $this->getName() . ", description=" . $this->getDescription() . ", duration=" . $this->getDuration() . ", author=" . $this->getAuthor() . ", difficulty=" . $this->getDifficulty() . ", cost=" . $this->getCost() . ", ustensils=" . implode($this->getUstencils()) .", ingredient=" .implode($this->getIngredients()) . ", appreciations=" . implode($this->getAppreciations()) . "}";
+    return "Recipe{id=" . $this->getId() . ", name=" . $this->getName() . ", description=" . $this->getDescription() . ", duration=" . $this->getDuration() . ", author=" . $this->getAuthor() . ", difficulty=" . $this->getDifficulty() . ", cost=" . $this->getCost() . ", ustensils=" . implode($this->getUstensils()) .", ingredient=" .implode($this->getIngredients()) . ", appreciations=" . implode($this->getAppreciations()) . "}";
     }
 
 
