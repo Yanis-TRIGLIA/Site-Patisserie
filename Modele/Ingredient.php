@@ -4,8 +4,13 @@ final class Ingredient {
 
     private static $sql = 'SELECT NAME FROM INGREDIENT WHERE ID_INGREDIENT=?';
     private static $sql2 = 'INSERT INTO INGREDIENT (NAME) VALUES (?)';
-    private static $req_prep = modele::$pdo->prepare(self::$sql);
-    private static $req_prep2 = modele::$pdo->prepare(self::$sql2);
+    private static $req_prep;
+    private static $req_prep2;
+
+    static function prepare() {
+        self::$req_prep = modele::$pdo->prepare(self::$sql);
+        self::$req_prep2 = modele::$pdo->prepare(self::$sql2);
+    }
 
     public static function getById($id) {
         self::$req_prep->execute(array($id));
@@ -39,3 +44,5 @@ final class Ingredient {
     }
 
 }
+
+Ingredient::prepare();

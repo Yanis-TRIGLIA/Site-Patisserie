@@ -4,8 +4,13 @@ final class User{
 
     private static $sql = 'SELECT LOGIN,DISPLAY_NAME,DATE_FORMAT(FIRST_SEEN, "%d %b %Y") AS FIRST_SEEN, DATE_FORMAT(LAST_SEEN, "%d %b %Y") AS LAST_SEEN, PP_URL FROM USER WHERE ID_USER=?';
     private static $sql2 = 'INSERT INTO (LOGIN, HASHED_PASSWORD, DISPLAY_NAME, FIRT_SEEN, LAST_SEEN, PP_URL) VALUES (?, ?, ?, ?, ?, ?)';
-    private static $req_prep = modele::$pdo->prepare(self::$sql);
-    private static $req_prep2 = modele::$pdo->prepare(self::$sql2);
+    private static $req_prep;
+    private static $req_prep2;
+
+    static function prepare() {
+        self::$req_prep = modele::$pdo->prepare(self::$sql);
+        self::$req_prep2 = modele::$pdo->prepare(self::$sql2);
+    }
 
     public static function getById($id){
         self::$req_prep->execute(array($id));
@@ -62,3 +67,5 @@ final class User{
     }
 
 }
+
+User::prepare();

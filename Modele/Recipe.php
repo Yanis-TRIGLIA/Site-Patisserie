@@ -12,13 +12,23 @@ final class Recipe{
     private static $sql6 = 'INSERT INTO RECIPE_USTENSIL (ID_RECIPE, ID_USTENSIL) VALUES (?, ?)';
     private static $sql7 = 'INSERT INTO RECIPE_INGREDIENT (ID_RECIPE, ID_INGREDIENT) VALUES (?, ?)';
 
-    private static $req_prep1 = modele::$pdo->prepare(self::$sql1);
-    private static $req_prep2 = modele::$pdo->prepare(self::$sql2);
-    private static $req_prep3 = modele::$pdo->prepare(self::$sql3);
-    private static $req_prep4 = modele::$pdo->prepare(self::$sql4);
-    private static $req_prep5 = modele::$pdo->prepare(self::$sql5);
-    private static $req_prep6 = modele::$pdo->prepare(self::$sql6);
-    private static $req_prep7 = modele::$pdo->prepare(self::$sql7);
+    private static $req_prep1;
+    private static $req_prep2;
+    private static $req_prep3;
+    private static $req_prep4;
+    private static $req_prep5;
+    private static $req_prep6;
+    private static $req_prep7;
+
+    static function prepare() {
+        self::$req_prep1 = modele::$pdo->prepare(self::$sql1);
+        self::$req_prep2 = modele::$pdo->prepare(self::$sql2);
+        self::$req_prep3 = modele::$pdo->prepare(self::$sql3);
+        self::$req_prep4 = modele::$pdo->prepare(self::$sql4);
+        self::$req_prep5 = modele::$pdo->prepare(self::$sql5);
+        self::$req_prep6 = modele::$pdo->prepare(self::$sql6);
+        self::$req_prep7 = modele::$pdo->prepare(self::$sql7);
+    }
     
 
     public static function getById($id) {
@@ -121,3 +131,5 @@ final class Recipe{
 
 
 }
+
+Recipe::prepare();

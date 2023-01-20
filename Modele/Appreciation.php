@@ -4,9 +4,14 @@ final class Appreciation{
 
     private static $sql1 = 'SELECT ID_RECIPE,ID_AUTHOR,DATE_FORMAT(PUBLICATION_DATE , "%d %b %Y") AS PUBLICATION_DATE ,GRADE,COMMENTARY FROM APPRECIATION WHERE ID_APPRECIATION=?';
     private static $sql2 = 'INSERT INTO APPRECIATION (ID_RECIPE, ID_AUTHOR, PUBLICATION_DATE, GRADE, COMMENTARY) VALUES (?, ?, ?, ?, ?)';
+    private static $req_prep1;
+    private static $req_prep2;
 
-    private static $req_prep1 = modele::$pdo->prepare(self::$sql1);
-    private static $req_prep2 = modele::$pdo->prepare(self::$sql2);
+    static function prepare() {
+        self::$req_prep1 = modele::$pdo->prepare(self::$sql1);
+        self::$req_prep2 = modele::$pdo->prepare(self::$sql2);
+    }
+
 
     public static function getById($id) {
         self::$req_prep1->execute(array($id));
@@ -62,3 +67,5 @@ final class Appreciation{
     }
 
 }
+
+Appreciation::prepare();
