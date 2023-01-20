@@ -21,6 +21,7 @@ final class ControleurRecipe
 
         Vue::montrer('recipe/comentaryView', $O_recipe->getAppreciations());
         Vue::montrer('recipe/formView');
+
     }
 
     public function editAction($A_urlParams,$id)
