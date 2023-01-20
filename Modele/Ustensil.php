@@ -2,8 +2,8 @@
 
 final class Ustensil {
 
-    private static $sql = "SELECT NAME FROM USTENSIL WHERE ID_USTENSIL=?";
-    private static $sql2 = "INSERT INTO USTENSIL (NAME) VALUES (?)";
+    private static $sql = 'SELECT NAME FROM USTENSIL WHERE ID_USTENSIL=?';
+    private static $sql2 = 'INSERT INTO USTENSIL (NAME) VALUES (?)';
     private static $req_prep = modele::$pdo->prepare(self::$sql);
     private static $req_prep2 = modele::$pdo->prepare(self::$sql2);
 

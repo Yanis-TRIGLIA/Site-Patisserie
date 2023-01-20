@@ -2,8 +2,8 @@
 
 final class Ingredient {
 
-    private static $sql = "SELECT NAME FROM INGREDIENT WHERE ID_INGREDIENT=?";
-    private static $sql2 = "INSERT INTO INGREDIENT (NAME) VALUES (?)";
+    private static $sql = 'SELECT NAME FROM INGREDIENT WHERE ID_INGREDIENT=?';
+    private static $sql2 = 'INSERT INTO INGREDIENT (NAME) VALUES (?)';
     private static $req_prep = modele::$pdo->prepare(self::$sql);
     private static $req_prep2 = modele::$pdo->prepare(self::$sql2);
 
