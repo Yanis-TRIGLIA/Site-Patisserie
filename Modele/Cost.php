@@ -2,15 +2,19 @@
 
 final class Cost {
 
-    private static $sql = "SELECT NAME FROM COST WHERE ID_COST=?";
-    private static $req_prep;
+    private static $sql = 'SELECT NAME FROM COST WHERE ID_COST=?';
+    private static $sql2 = 'INSERT INTO COST (NAME) VALUES (?)';
+    private static $req_prep = modele::$pdo->prepare(self::$sql);
+    private static $req_prep2 = modele::$pdo->prepare(self::$sql2);
 
     public static function getById($id){
-        if (is_null(self::$req_prep))
-            self::$req_prep = modele::$pdo->prepare(self::$sql);
         self::$req_prep->execute(array($id));
         $row = self::$req_prep->fetch();
         return new Cost($id, $row['NAME']);
+    }
+
+    public static function createCost($name) {
+        self::$req_prep2->execute(array($name));
     }
 
     private $id;
