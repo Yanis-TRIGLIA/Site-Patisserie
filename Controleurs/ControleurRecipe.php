@@ -21,7 +21,6 @@ final class ControleurRecipe
 
         Vue::montrer('recipe/comentaryView', $O_recipe->getAppreciations());
         Vue::montrer('recipe/formView');
-        Vue::montrer('standard/pied');
     }
    
    /*just for the test
