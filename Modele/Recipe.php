@@ -6,7 +6,7 @@ final class Recipe{
 
     private static $sql1 = 'SELECT NAME,DESCRIPTION,DURATION,ID_AUTHOR,ID_DIFFICULTY,ID_COST, IMAGE_URL FROM RECIPE WHERE ID_RECIPE=?';
     private static $sql2 = 'SELECT ID_USTENSIL FROM RECIPE_USTENSIL WHERE ID_RECIPE=?';
-    private static $sql3 = 'SELECT ID_INGREDIENT FROM RECIPE_INGREDIENT WHERE ID_RECIPE=?';
+    private static $sql3 = 'SELECT ID_INGREDIENT, QUANTITY FROM RECIPE_INGREDIENT WHERE ID_RECIPE=?';
     private static $sql4 = 'SELECT ID_APPRECIATION FROM APPRECIATION WHERE ID_RECIPE=?';
     private static $sql5 = 'INSERT INTO RECIPE (NAME, DESCRIPTION, DURATION, ID_AUTHOR, ID_DIFFICULTY, ID_COST, IMAGE_URL) VALUES (?, ?, ?, ?, ?, ?, ?)';
     private static $sql6 = 'INSERT INTO RECIPE_USTENSIL (ID_RECIPE, ID_USTENSIL) VALUES (?, ?)';
@@ -41,7 +41,7 @@ final class Recipe{
         self::$req_prep3->execute(array($id));
         $ingredients = array();
         while ($idIngredient = self::$req_prep3->fetch())
-            array_push($ingredients, Ingredient::getById($idIngredient['ID_INGREDIENT']));
+            array_push($ingredients, Ingredient::getById($idIngredient['ID_INGREDIENT'], $idIngredient['QUANTITY']));
         self::$req_prep4->execute(array($id));
         $appreciations = array();
         while ($idAppreciation = self::$req_prep4->fetch())
