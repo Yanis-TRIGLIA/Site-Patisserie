@@ -4,25 +4,23 @@ final class ControleurRecipe
 {
     public function defautAction()
     {
-
         $O_recipe = Recipe::getById(1);
         Vue::montrer('standard/entete', array('recipe'=> $O_recipe->getName()));
         Vue::montrer('standard/navbar');
 
         $averageGrade = $this->averageGrade($O_recipe);
-        $mainInfo = [$O_recipe->getName(),$O_recipe->getDifficulty(),$O_recipe->getDuration(),$averageGrade];
+        $mainInfo = [$O_recipe->getName(),$O_recipe->getDifficulty()->getName(),$O_recipe->getDuration(),$averageGrade];
         Vue::montrer('recipe/mainInfoView', $mainInfo);
         
         Vue::montrer('recipe/listIngredientView', array('recipe' => $O_recipe->getIngredients()));
         Vue::montrer('recipe/listUstensileView', array('recipe' => $O_recipe->getUstensils()));
-        Vue::montrer('recipe/imageView', ["/image/galette_des_rois.jpeg",$O_recipe->getName()]);
+        Vue::montrer('recipe/imageView', [$O_recipe->getImageUrl(),$O_recipe->getName()]);
 
-        $textInfo = [$O_recipe->getDescription(),$O_recipe->getAuthor(),$O_recipe->getCost()];
+        $textInfo = [$O_recipe->getDescription(),$O_recipe->getAuthor()->getDisplayName(),$O_recipe->getCost()->getName()];
         Vue::montrer('recipe/textView', $textInfo);
 
         Vue::montrer('recipe/comentaryView', $O_recipe->getAppreciations());
         Vue::montrer('recipe/formView');
-        Vue::montrer('standard/pied');
     }
    
    /*just for the test
@@ -43,14 +41,14 @@ final class ControleurRecipe
 
     private function averageGrade($O_recipe)
     {
-        $average =0;
+        $average = 0;
         $sum = 0;
         $appreciations = $O_recipe->getAppreciations();
-        for ($i=0; sizeof($appreciations);++$i){
-            $sum+= $appreciations[$i]->getGrade();
+        for ($i=0; $i<sizeof($appreciations);++$i){
+            $sum += $appreciations[$i]->getGrade();
         }
         $average = $sum/sizeof($appreciations);
+        return $average;
     }
 
-   
 }
