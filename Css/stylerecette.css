@@ -187,5 +187,19 @@ margin: 50px;
     .barre_de_nav ul.topnav li {float: none;}
 }
 
+.recette_random{
+  display: flex;
+  flex-direction: row;
+  font-size: 20%;
+
+}
+.small-text {
+font-size: 20px;
+}
+.small-img {
+width: 100px;
+height: 100px;
+}
+
 
 
