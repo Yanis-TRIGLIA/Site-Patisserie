@@ -75,7 +75,24 @@ recette 1
   background-size: cover;
   border: 5px solid black;
   border-radius: 1%;
+
+  position: relative;
+  color: black;
 }
+.recette_1:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 1;
+    transition: all 200ms ease-out;
+    transform: scale(1.1); 
+
+}
+a:link 
+{ 
+  text-decoration: none;
+  color: black;
+} 
+
 .galette_des_rois{
   width: 350px;
   height: 350px;
@@ -96,6 +113,16 @@ recette 2
   border: 5px solid black;
   border-radius: 1%;
 }
+
+.recette_2:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 1;
+    transition: all 200ms ease-out;
+    transform: scale(1.1); 
+
+}
+
 .Gateau_chocolat{
   width: 350px;
   height : 350px;
@@ -116,6 +143,16 @@ recette 3
   border: 5px solid black;
   border-radius: 1%;
 }
+
+.recette_3:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 1;
+    transition: all 200ms ease-out;
+    transform: scale(1.1); 
+
+}
+
 .Tarte_tatin 
   {
   width: 350px;
