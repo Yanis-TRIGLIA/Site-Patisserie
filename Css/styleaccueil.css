@@ -1,17 +1,69 @@
+body{
+  display: flex;
+  flex-direction: column;
+  background-image: url(https://img.freepik.com/vecteurs-libre/fond-boulangerie-dessine-main_23-2148136973.jpg?w=1060&t=st=1674199343~exp=1674199943~hmac=699510b70e95e2d4f45680c0e04747179ee747d79f6bbb9c8bf32b846961570a);  
+  background-size: cover;
 
+
+  
+}
+body p{
+  font-size: 25px;
+  font-family: cursive;
+  margin: 20px;
+}
+
+/*________________________________________________________________________________________________________________________________________________________________________
+le haut de la page 
+*/
+.titre{
+  display: flex;
+  flex-direction: column;
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
+  font-family: cursive;
+  margin: 10%;
+  border: 5px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 40px;
+  border-radius: 10%;
+
+
+}
+.Accueil{
+  margin: 20px;
+  padding-right: 10px;
+}
+.recommandation{
+  display: flex;
+  flex-direction: column;
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
+  font-family: cursive;
+  border: 5px solid black;
+  margin-left: auto;
+ margin-right: auto;
+ border-radius: 10%;
+
+}
+
+.titre_Recomantation{
+  margin: 20px;
+}
+
+
+
+   /*________________________________________________________________________________________________________________________________________________________________________
+Toute les recettes
+*/
 .recette_random{
   display: flex;
   flex-direction: row;
-  font-size: 20%;
+  border-radius: 10%;
 
 }
-.small-text {
-font-size: 20px;
-}
-.small-img {
-width: 100px;
-height: 100px;
-}
+
 
 /*________________________________________________________________________________________________________________________________________________________________________
 recette 1
@@ -20,12 +72,29 @@ recette 1
   display: flex;
   flex-direction: column;
   margin: 90px;
-  background-color:rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   border: 5px solid black;
+  border-radius: 1%;
+  position: relative;
+  color: black;
 }
+.recette_1:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 1;
+    transition: all 200ms ease-out;
+    transform: scale(1.1); 
+
+}
+a:link 
+{ 
+  text-decoration: none;
+  color: black;
+} 
 .galette_des_rois{
   width: 350px;
-  height : 350px;
+  height: 350px;
 
 }
 
@@ -38,8 +107,18 @@ recette 2
   display: flex;
   flex-direction: column;
   margin: 90px;
-  background-color:rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   border: 5px solid black;
+  border-radius: 1%;
+}
+.recette_2:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 1;
+    transition: all 200ms ease-out;
+    transform: scale(1.1); 
+
 }
 .Gateau_chocolat{
   width: 350px;
@@ -56,11 +135,21 @@ recette 3
   display: flex;
   flex-direction: column;
   margin: 90px;
-  background-color:rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   border: 5px solid black;
+  border-radius: 1%;
+}
+.recette_3:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 1;
+    transition: all 200ms ease-out;
+    transform: scale(1.1); 
+
 }
 .Tarte_tatin 
-{
+  {
   width: 350px;
   height : 350px;
 
@@ -77,9 +166,11 @@ Selection des cathégorie
   display: flex;
   flex-direction: column;
   margin-left: auto;
- margin-right: auto;
- background-color:rgba(212, 212, 212,0.9);
- border: 5px solid black;
+  margin-right: auto;
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
+  border: 5px solid black;
+  border-radius: 1%;
 }
 
 
@@ -88,15 +179,16 @@ Selection des cathégorie
   flex-direction: row;
   justify-content: space-between;
   resize : none;
+  border-radius: 10%;
 }
 .textareaIngrédient{
-resize: none;
-background-color: #aaa;
-color: #000;
-border-radius: 10%;
-padding: 1em;
-border: 2px solid transparent ;
-outline: none;
+  resize: none;
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
 }
 
 
@@ -105,15 +197,16 @@ outline: none;
   flex-direction: row;
   justify-content: space-between;
   resize : none;
+  border-radius: 10%;
 }
 .textareaUstensile{
-resize : none;
-background-color: #aaa;
-color: #000;
-border-radius: 10%;
-padding: 1em;
-border: 2px solid transparent ;
-outline: none;
+  resize : none;
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
 }
 
 
@@ -122,15 +215,16 @@ outline: none;
   flex-direction: row;
   justify-content: space-between;
   resize : none;
+  border-radius: 10%;
 }
 .textareaTemps_de_préparation{
-resize : none;
-background-color: #aaa;
-color: #000;
-border-radius: 10%;
-padding: 1em;
-border: 2px solid transparent ;
-outline: none;
+  resize : none;
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
 }
 
 
@@ -139,16 +233,19 @@ outline: none;
   flex-direction: row;
   justify-content: space-between;
   resize : none;
+  border-radius: 10%;
 }
 .textareaType_de_cuisson{
-resize : none;
-background-color: #aaa;
-color: #000;
-border-radius: 10%;
-padding: 1em;
-border: 2px solid transparent ;
-outline: none;
+  resize : none;
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
 }
+
+
 
 
 .Difficulté{
@@ -157,7 +254,48 @@ outline: none;
   justify-content: space-between;
   align-items: center;
   justify-content: center;
+  border-radius: 10%;
 }
+.labelDifficulté{
+  padding-right: 15%;
+  text-shadow: #000;
+ 
+}
+.button_très_facile{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+.button_facile{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+.button_moyen{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+.button_difficile{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+
+
+
 
 
 .Coût{
@@ -166,7 +304,39 @@ outline: none;
   justify-content: space-between;
   align-items: center;
   justify-content: center;
+  border-radius: 10%;
 }
+.labelCoût{
+  padding-right: 20%;
+ 
+}
+.button_bon_marché{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+.button_coût_moyen{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+.button_assez_chère{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+
+
+
 
 
 .Particularité{
@@ -175,6 +345,40 @@ outline: none;
   justify-content: space-between;
   align-items: center;
   justify-content: center;
+  border-radius: 10%;
+}
+
+.végétarien{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+.végan{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+.sans_gluten{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
+}
+.sans_lactose{
+  background-color: #b9b9b9;
+  color: #000;
+  border-radius: 10%;
+  padding: 1em;
+  border: 2px solid black ;
+  outline: none;
 }
 
 
@@ -183,27 +387,26 @@ outline: none;
 /*________________________________________________________________________________________________________________________________________________________________________
 Barre  de navigation 
 */
-
 .Recherche{
-resize : none;
-background-color: #aaa;
-color: #000;
-border-radius: 10%;
-padding: 1em;
-border: 2px solid transparent ;
-outline: none;
+  resize : none;
+  background-color: #b9b9b9;
+  color: #000;
+  padding: 1em;
+  border: 1px solid black;
+  outline: none;
 
 }
 .Searchbutton{
-background-image: url(https://cdn.icon-icons.com/icons2/1111/PNG/512/loupe_79257.png);
-background-size: cover;
-height: 60px;
-width: 60px;
-border-radius: 10%;
+  background-image: url(https://cdn.icon-icons.com/icons2/1111/PNG/512/loupe_79257.png);
+  background-size: cover;
+  height: 60px;
+  width: 60px;
+  border-radius: 10%;
 
 }
 .barre_de_nav{
- align-items: flex-start;
+  align-items: flex-start;
+  border: 5px solid black;
 }
 
 .barre_de_nav ul {
@@ -211,17 +414,19 @@ border-radius: 10%;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: 	rgb(119,77,37);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   position: fixed;
   top: 0;
   width: 100%;
+  border: 2px solid black;
 }
-
+  
 .barre_de_nav li {
   float: left;
   border-right:1px solid #bbb;
 }
-
+  
 .barre_de_nav  li:last-child {
   border-right: none;
 }
@@ -233,45 +438,43 @@ border-radius: 10%;
   padding: 14px 16px;
   text-decoration: none;
 }
-
-.barre_de_nav li a:hover:not(.active) {
-  background-color: 	rgb(119,77,37);
-}
-
-.active {
+  
+  .sigin {
   background-color:#444;
   height: 30px;
 }
-.backgroundimage{
+ .login{
+  background-color: 	rgb(119,77,37);
+  height: 30px;
+ }
+  .backgroundimage{
   background-image:url(https://media.istockphoto.com/id/815601974/fr/vectoriel/crocodile-de-dessin-anim%C3%A9-mignon-alligator-ou-dinosaure-portant-costume-noir-homme.webp?s=2048x2048&w=is&k=20&c=FTHuDeGc1mZ0mz8O5I7BSsnY56tv58YzSkhPzfgllKw=);
   background-size:cover;
   width: 32px;
   height: 32px;
-      
+  
 }
-
+  
 
 .barre_de_nav ul.topnav {
-list-style-type: none;
-margin: 0;
-padding: 0;
-overflow: hidden;
-background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
 .barre_de_nav ul.topnav li {float: left;}
 
 .barre_de_nav ul.topnav li a {
-display: block;
-color: white;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.barre_de_nav ul.topnav li a:hover:not(.active) {background-color: #111;}
-
-.barre_de_nav ul.topnav li a.active {background-color: #444;}
+.barre_de_nav ul.topnav li a.sigin {background-color: #444;}
 
 .barre_de_nav ul.topnav li.right {float: right;}
 

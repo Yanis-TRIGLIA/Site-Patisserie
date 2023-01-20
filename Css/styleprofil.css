@@ -9,170 +9,98 @@ body p{
   font-family: cursive;
   margin: 20px;
 }
-/*________________________________________________________________________________________________________________________________________________________________________
-Formulaire 
-*/
-form{
-  text-align: center;
-  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
-  background-size: cover;
-  border: 5px solid black;
-  -moz-border-radius: 10px; /* Mozilla (Firefox) */
-  -webkit-border-radius: 10px; /* Chrome, Safari, iPhone, Android, etc. */
-  border-radius: 10px; /* Internet Explorer 9, Opera */
-  margin: 20px;
-}
 
-  .impression{
-  resize: none;
-  background-color: #b9b9b9;
-  color: #000;
-  border-radius: 10%;
-  padding: 1em;
-  border: 2px solid black ;
-  outline: none;
-}
-  .NoteLabel{
-  resize: none;
-  background-color: #b9b9b9;
-  color: #000;
-  border-radius: 10%;
-  padding: 1em;
-  border: 2px solid black ;
-  outline: none;
-}
-/*________________________________________________________________________________________________________________________________________________________________________
-Partie haute de la page 
-*/
-.selection_haute{
+.titre{
   display: flex;
   flex-direction: column;
   background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
   background-size: cover;
   font-family: cursive;
-  align-items: center;
-  justify-content: center;
-  margin: 50px;
-  border: 5px solid black; 
-  border-radius: 1%;
-}
-.titre{
-  font-size: 50px;
-}
-
-/*________________________________________________________________________________________________________________________________________________________________________
-centre de la page 
-*/
-.selection_milleu{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 100px;
-  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
-  background-size: cover;
+  margin: 8%;
   border: 5px solid black;
-  border-radius: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 40px;
 }
-.les_listes{
-  display: flex;
-  flex-direction: column;
-
-}
-.la_liste_ingredients{
-  font-size: 20px;
-}
-.la_liste_ustensiles{
-  font-size: 20px;
-}
-.image_galette{
-  display: flex;
-
-}
-.galette_des_rois{
-  width: 700px;
-  height : 700px;
-
-}
-
-
-
-/*________________________________________________________________________________________________________________________________________________________________________
-Bas de la page 
-*/
-
-
-
-.selection_basse{
-  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
-  background-size: cover;
-  margin: 50px;
-  border: 5px solid black;
-  border-radius: 1%;
-}
-.explication{
-  text-align: left;
+.Profil{
   margin: 20px;
+  padding-right: 10px;
 }
-
-.Coûte{
-  text-align: right;
-}
-.auteur{
-  text-align: center;
-}
-
-
 /*________________________________________________________________________________________________________________________________________________________________________
-le Commantaire
+Gestion Carte profil 
 */
-
-
-.Com{
+.carte_profil{
   display: flex;
   flex-direction: row;
   background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
   background-size: cover;
-  margin: 20px;
+  font-family: cursive;
   border: 5px solid black;
-  border-radius: 1%;
-
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 60px;
 }
-
-.Photo_de_profil_com{
-  width: 100px;
-  height : 100px;
+/*________________________________________________________________________________________________________________________________________________________________________
+Gestion Photo de profil
+*/
+.Photo_profil{
+  width: 250px;
+  height : 350px;
   border: 2px solid black;
+}
 
-}
-.Mes_not_com{
+
+/*________________________________________________________________________________________________________________________________________________________________________
+Gestion Name
+*/
+
+.Login_Displayname{
   display: flex;
   flex-direction: column;
+}
+.Login{
+  display: flex;
+  flex-direction: row;
   margin: 50px;
-  border-radius: 1%;
 }
-.Nom_utilisateur{
-  margin: 20px;
+.Display{
+  display: flex;
+  flex-direction: row;
+  margin: 50px;
 }
-.date_publication{
+
+
+
+
+
+/*________________________________________________________________________________________________________________________________________________________________________
+Gestion Date
+*/
+
+.First_Last{
   display: flex;
   flex-direction: column;
-  justify-content: end;
 }
-.titre_com{
-  font-size: 30px;
-  align-self: center;
-} 
-.message_com1{
-  font-size: 20px;
+.First{
+  display: flex;
+  flex-direction: row;
+  margin: 50px;
 }
-.note_com1{
-  font-size: 20px;
+.Last{
+  display: flex;
+  flex-direction: row;
+  margin: 50px;
 }
+
+
+
+
+
+
 
 /*________________________________________________________________________________________________________________________________________________________________________
 Barre  de navigation 
 */
-
 .Recherche{
   resize : none;
   background-color: #b9b9b9;
@@ -238,6 +166,7 @@ Barre  de navigation
   background-size:cover;
   width: 32px;
   height: 32px;
+  
 }
   
 

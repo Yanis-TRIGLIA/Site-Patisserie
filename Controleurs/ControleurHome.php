@@ -15,11 +15,14 @@ class ControleurHome {
         $averageGrade1 = $this->averageGrade1($O_recipe1);
         $averageGrade2 = $this->averageGrade2($O_recipe2);
         $averageGrade3 = $this->averageGrade3($O_recipe3);
-        $recipe1 = [$O_recipe1->getImageUrl(),$O_recipe1->getName(),$O_recipe1->getDifficulty(),$O_recipe1->getDuration(),$averageGrade1];
-        $recipe2 = [$O_recipe2->getImageUrl(),$O_recipe2->getName(),$O_recipe2->getDifficulty(),$O_recipe2->getDuration(),$averageGrade2];
-        $recipe3 = [$O_recipe3->getImageUrl(),$O_recipe3->getName(),$O_recipe3->getDifficulty(),$O_recipe3->getDuration(),$averageGrade3];
+        $difficulty1 = $this->difficulty1($O_recipe1);
+        $difficulty2 = $this->difficulty2($O_recipe2);
+        $difficulty3 = $this->difficulty3($O_recipe3);
+        $recipe1 = [$O_recipe1->getImageUrl(),$O_recipe1->getName(),$difficulty1,$O_recipe1->getDuration(),$averageGrade1,$O_recipe1->getId()];
+        $recipe2 = [$O_recipe2->getImageUrl(),$O_recipe2->getName(),$difficulty2,$O_recipe2->getDuration(),$averageGrade2,$O_recipe2->getId()];
+        $recipe3 = [$O_recipe3->getImageUrl(),$O_recipe3->getName(),$difficulty3,$O_recipe3->getDuration(),$averageGrade3,$O_recipe3->getId()];
         $array = [$recipe1,$recipe2,$recipe3];
-        Vue::montrer('Home/caroussel',$array);
+        Vue::montrer('home/SlideShow',$array);
 
     }
     private function averageGrade1($O_recipe1)
@@ -54,5 +57,32 @@ class ControleurHome {
         }
         $average = $sum/sizeof($appreciations);
         return $average;
+    }
+    private function difficulty1($O_recipe1){
+
+        $difficulty = $O_recipe1->getDifficulty();
+        for ($i=0; $i<sizeof($difficulty);++$i){
+           $level= $difficulty->getName();
+        }
+        return $level;
+
+    }
+    private function difficulty2($O_recipe2){
+
+        $difficulty = $O_recipe2->getDifficulty();
+        for ($i=0; $i<sizeof($difficulty);++$i){
+           $level= $difficulty->getName();
+        }
+        return $level;
+
+    }
+    private function difficulty3($O_recipe3){
+
+        $difficulty = $O_recipe3->getDifficulty();
+        for ($i=0; $i<sizeof($difficulty);++$i){
+           $level= $difficulty->getName();
+        }
+        return $level;
+
     }
 }
