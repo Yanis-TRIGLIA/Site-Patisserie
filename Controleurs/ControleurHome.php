@@ -3,9 +3,9 @@
 class ControleurHome {
 
     public function defautAction() {
-        $num1 = rand(1,3);
-        $num2 = rand(1,3);
-        $num3 = rand(1,3);
+        $num1 = rand(1,5);
+        $num2 = rand(1,5);
+        $num3 = rand(1,5);
         $O_recipe1 = Recipe::getById($num1);
         $O_recipe2 = Recipe::getById($num2);
         $O_recipe3 = Recipe::getById($num3);
@@ -61,7 +61,7 @@ class ControleurHome {
     private function difficulty1($O_recipe1){
 
         $difficulty = $O_recipe1->getDifficulty();
-        for ($i=0; $i<sizeof($difficulty);++$i){
+        for ($i=0; $i<($difficulty);++$i){
            $level= $difficulty->getName();
         }
         return $level;
@@ -70,7 +70,7 @@ class ControleurHome {
     private function difficulty2($O_recipe2){
 
         $difficulty = $O_recipe2->getDifficulty();
-        for ($i=0; $i<sizeof($difficulty);++$i){
+        for ($i=0; $i<($difficulty);++$i){
            $level= $difficulty->getName();
         }
         return $level;
@@ -79,7 +79,7 @@ class ControleurHome {
     private function difficulty3($O_recipe3){
 
         $difficulty = $O_recipe3->getDifficulty();
-        for ($i=0; $i<sizeof($difficulty);++$i){
+        for ($i=0; $i<($difficulty);++$i){
            $level= $difficulty->getName();
         }
         return $level;
