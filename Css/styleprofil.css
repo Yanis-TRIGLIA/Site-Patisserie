@@ -5,7 +5,7 @@ body{
   background-size: cover;
 }
 body p{
-  font-size: 20px;
+  font-size: 25px;
   font-family: cursive;
   margin: 20px;
 }
@@ -13,7 +13,8 @@ body p{
 .titre{
   display: flex;
   flex-direction: column;
-  background-color:rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   font-family: cursive;
   margin: 8%;
   border: 5px solid black;
@@ -31,7 +32,8 @@ Gestion Carte profil
 .carte_profil{
   display: flex;
   flex-direction: row;
-  background-color:rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   font-family: cursive;
   border: 5px solid black;
   margin-left: auto;
@@ -44,6 +46,7 @@ Gestion Photo de profil
 .Photo_profil{
   width: 250px;
   height : 350px;
+  border: 2px solid black;
 }
 
 
@@ -98,14 +101,12 @@ Gestion Date
 /*________________________________________________________________________________________________________________________________________________________________________
 Barre  de navigation 
 */
-
 .Recherche{
   resize : none;
-  background-color: #aaa;
+  background-color: #b9b9b9;
   color: #000;
-  border-radius: 10%;
   padding: 1em;
-  border: 2px solid transparent ;
+  border: 1px solid black;
   outline: none;
 
 }
@@ -118,7 +119,8 @@ Barre  de navigation
 
 }
 .barre_de_nav{
-  align-items: flex-start;  
+  align-items: flex-start;
+  border: 5px solid black;
 }
 
 .barre_de_nav ul {
@@ -126,10 +128,12 @@ Barre  de navigation
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: 	rgb(119,77,37);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   position: fixed;
   top: 0;
   width: 100%;
+  border: 2px solid black;
 }
   
 .barre_de_nav li {
@@ -140,7 +144,7 @@ Barre  de navigation
 .barre_de_nav  li:last-child {
   border-right: none;
 }
-  
+
 .barre_de_nav  li a {
   display: block;
   color: white;
@@ -149,19 +153,20 @@ Barre  de navigation
   text-decoration: none;
 }
   
-.barre_de_nav li a:hover:not(.active) {
-  background-color: 	rgb(119,77,37);
-}
-  
-.active {
+  .sigin {
   background-color:#444;
   height: 30px;
 }
-.backgroundimage{
+ .login{
+  background-color: 	rgb(119,77,37);
+  height: 30px;
+ }
+  .backgroundimage{
   background-image:url(https://media.istockphoto.com/id/815601974/fr/vectoriel/crocodile-de-dessin-anim%C3%A9-mignon-alligator-ou-dinosaure-portant-costume-noir-homme.webp?s=2048x2048&w=is&k=20&c=FTHuDeGc1mZ0mz8O5I7BSsnY56tv58YzSkhPzfgllKw=);
   background-size:cover;
   width: 32px;
-  height: 32px;  
+  height: 32px;
+  
 }
   
 
@@ -183,9 +188,7 @@ Barre  de navigation
   text-decoration: none;
 }
 
-.barre_de_nav ul.topnav li a:hover:not(.active) {background-color: #111;}
-
-.barre_de_nav ul.topnav li a.active {background-color: #444;}
+.barre_de_nav ul.topnav li a.sigin {background-color: #444;}
 
 .barre_de_nav ul.topnav li.right {float: right;}
 
@@ -193,5 +196,3 @@ Barre  de navigation
   .barre_de_nav ul.topnav li.right, 
   .barre_de_nav ul.topnav li {float: none;}
 }
-
-
