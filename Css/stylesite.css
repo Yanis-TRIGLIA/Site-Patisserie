@@ -441,68 +441,106 @@ CSS "Acceuil.html"
         .Random_recipe{/*recette_random*/
             display: flex;
             flex-direction: row;
-            border-radius: 10%;
+            border-radius: 5%;
         
         }
         
         /*________________________________________________________________________________________________________________________________________________________________________
         recipe 1
         */
-        .recipe_1{/*recette_1*/
+        .recipe_1{
             display: flex;
             flex-direction: column;
             margin: 90px;
             background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
             background-size: cover;
-            border: 5px solid black;
+            border: 3px solid black;
             border-radius: 1%;
-        }
-        .Picture_recipe_1{/*galette_des_rois*/
+          
+            position: relative;
+            color: black;
+          }
+          .recipe_1:hover
+          {
+              box-shadow: 0px 0px 150px #000000;
+              z-index: 1;
+              transition: all 200ms ease-out;
+              transform: scale(1.1); 
+          
+          }
+          a:link 
+          { 
+            text-decoration: none;
+            color: black;
+          } 
+          
+        .Picture_recipe_1{
             width: 350px;
             height: 350px;
-        
-        }
+          
+          }
         
         
         /*________________________________________________________________________________________________________________________________________________________________________
         recipe 2
         */
         
-        .recipe_2{/*recette_2*/
+        .recipe_2{
             display: flex;
             flex-direction: column;
-            margin: 90px;
+            margin: 80px;
             background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
             background-size: cover;
-            border: 5px solid black;
+            border: 3px solid black;
             border-radius: 1%;
-        }
-        .Picture_recipe_2{/*Gateau_chocolat*/
+          }
+          
+          .recipe_2:hover
+          {
+              box-shadow: 0px 0px 150px #000000;
+              z-index: 1;
+              transition: all 200ms ease-out;
+              transform: scale(1.1); 
+          
+          }
+          
+          .Picture_recipe_2{
             width: 350px;
             height : 350px;
-        
-        }
+          
+          }
+          
         
         
         /*________________________________________________________________________________________________________________________________________________________________________
         recipe 3
         */
         
-        .recipe_3{/*recette_3*/
+        .recipe_3{
             display: flex;
             flex-direction: column;
             margin: 90px;
             background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
             background-size: cover;
-            border: 5px solid black;
+            border: 3px solid black;
             border-radius: 1%;
-        }
-        .Picture_recipe_3/*Tarte_tatin*/ 
+          }
+          
+          .recipe_3:hover
+          {
+              box-shadow: 0px 0px 150px #000000;
+              z-index: 1;
+              transition: all 200ms ease-out;
+              transform: scale(1.1); 
+          
+          }
+          
+          .Picture_recipe_3
             {
             width: 350px;
             height : 350px;
-        
-        }
+          
+          }
         
         
         
