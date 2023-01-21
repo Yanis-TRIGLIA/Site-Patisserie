@@ -16,7 +16,7 @@ body p{
 /*________________________________________________________________________________________________________________________________________________________________________
 le haut de la page 
 */
-.titre{
+.Title_page_accueil{/*titre*/
   display: flex;
   flex-direction: column;
   background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
@@ -31,11 +31,11 @@ le haut de la page
 
 
 }
-.Accueil{
+.Home{/*Accueil*/
   margin: 20px;
   padding-right: 10px;
 }
-.recommandation{
+.recommandation{/*déja en anglais*/
   display: flex;
   flex-direction: column;
   background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
@@ -48,7 +48,7 @@ le haut de la page
 
 }
 
-.titre_Recomantation{
+.Title_Recomantation{/*titre_Recomantation*/
   margin: 20px;
 }
 
@@ -57,7 +57,7 @@ le haut de la page
    /*________________________________________________________________________________________________________________________________________________________________________
 Toute les recettes
 */
-.recette_random{
+.Random_recipe{/*recette_random*/
   display: flex;
   flex-direction: row;
   border-radius: 10%;
@@ -67,7 +67,7 @@ Toute les recettes
 /*________________________________________________________________________________________________________________________________________________________________________
 recette 1
 */
-.recette_1{
+.recipe_1{/*recette_1*/
   display: flex;
   flex-direction: column;
   margin: 90px;
@@ -75,25 +75,8 @@ recette 1
   background-size: cover;
   border: 5px solid black;
   border-radius: 1%;
-
-  position: relative;
-  color: black;
 }
-.recette_1:hover
-{
-    box-shadow: 0px 0px 150px #000000;
-    z-index: 1;
-    transition: all 200ms ease-out;
-    transform: scale(1.1); 
-
-}
-a:link 
-{ 
-  text-decoration: none;
-  color: black;
-} 
-
-.galette_des_rois{
+.Picture_recipe_1{/*galette_des_rois*/
   width: 350px;
   height: 350px;
 
@@ -104,7 +87,7 @@ a:link
 recette 2
 */
 
-.recette_2{
+.recipe_2{/*recette_2*/
   display: flex;
   flex-direction: column;
   margin: 90px;
@@ -113,17 +96,7 @@ recette 2
   border: 5px solid black;
   border-radius: 1%;
 }
-
-.recette_2:hover
-{
-    box-shadow: 0px 0px 150px #000000;
-    z-index: 1;
-    transition: all 200ms ease-out;
-    transform: scale(1.1); 
-
-}
-
-.Gateau_chocolat{
+.Picture_recipe_2{/*Gateau_chocolat*/
   width: 350px;
   height : 350px;
 
@@ -134,7 +107,7 @@ recette 2
 recette 3
 */
 
-.recette_3{
+.recipe_3{/*recette_3*/
   display: flex;
   flex-direction: column;
   margin: 90px;
@@ -143,17 +116,7 @@ recette 3
   border: 5px solid black;
   border-radius: 1%;
 }
-
-.recette_3:hover
-{
-    box-shadow: 0px 0px 150px #000000;
-    z-index: 1;
-    transition: all 200ms ease-out;
-    transform: scale(1.1); 
-
-}
-
-.Tarte_tatin 
+.Picture_recipe_3/*Tarte_tatin*/ 
   {
   width: 350px;
   height : 350px;
@@ -167,7 +130,7 @@ recette 3
 Selection des cathégorie
 */
 
-.cathegorie{
+.category{/*cathegorie*/
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -179,14 +142,14 @@ Selection des cathégorie
 }
 
 
-.Ingrédient{
+.Ingredient_home{/*Ingrédient*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   resize : none;
   border-radius: 10%;
 }
-.textareaIngrédient{
+.textareaIngredient_home{/*textareaIngrédient*/
   resize: none;
   background-color: #b9b9b9;
   color: #000;
@@ -197,14 +160,14 @@ Selection des cathégorie
 }
 
 
-.Ustensile{
+.Utensils_home{/*Ustensile*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   resize : none;
   border-radius: 10%;
 }
-.textareaUstensile{
+.textareaUtensil_home{/*textareaUstensile*/
   resize : none;
   background-color: #b9b9b9;
   color: #000;
@@ -215,14 +178,14 @@ Selection des cathégorie
 }
 
 
-.temps_de_préparation{
+.Time_setup{/*Temps_de_préparation*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   resize : none;
   border-radius: 10%;
 }
-.textareaTemps_de_préparation{
+.textareaTime_setup{/*textareaTemps_de_préparation*/
   resize : none;
   background-color: #b9b9b9;
   color: #000;
@@ -233,14 +196,14 @@ Selection des cathégorie
 }
 
 
-.type_de_cuisson{
+.Type_of_cooking{/*type_de_cuisson*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   resize : none;
   border-radius: 10%;
 }
-.textareaType_de_cuisson{
+.textareaType_of_cooking{/*textareaType_de_cuisson*/
   resize : none;
   background-color: #b9b9b9;
   color: #000;
@@ -253,7 +216,7 @@ Selection des cathégorie
 
 
 
-.Difficulté{
+.Difficult_home{/*Difficulté*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -261,12 +224,12 @@ Selection des cathégorie
   justify-content: center;
   border-radius: 10%;
 }
-.labelDifficulté{
+.labelDifficult_home{/*Difficulté*/
   padding-right: 15%;
   text-shadow: #000;
  
 }
-.button_très_facile{
+.button_very_easy{/*button_très_facile*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -274,7 +237,7 @@ Selection des cathégorie
   border: 2px solid black ;
   outline: none;
 }
-.button_facile{
+.button_easy{/*button_facile*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -282,7 +245,7 @@ Selection des cathégorie
   border: 2px solid black ;
   outline: none;
 }
-.button_moyen{
+.button_medium{/*button_moyen*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -290,7 +253,7 @@ Selection des cathégorie
   border: 2px solid black ;
   outline: none;
 }
-.button_difficile{
+.button_hard{/*button_difficile*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -303,7 +266,7 @@ Selection des cathégorie
 
 
 
-.Coût{
+.Cost_home{/*Coût*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -311,11 +274,11 @@ Selection des cathégorie
   justify-content: center;
   border-radius: 10%;
 }
-.labelCoût{
+.labelCost_home{/*labelCoût*/
   padding-right: 20%;
  
 }
-.button_bon_marché{
+.button_cheap{/*button_bon_marché*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -323,7 +286,7 @@ Selection des cathégorie
   border: 2px solid black ;
   outline: none;
 }
-.button_coût_moyen{
+.button_cost_medium{/*.button_coût_moyen*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -331,7 +294,7 @@ Selection des cathégorie
   border: 2px solid black ;
   outline: none;
 }
-.button_assez_chère{
+.button_expensive{/*button_assez_chère*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -344,7 +307,7 @@ Selection des cathégorie
 
 
 
-.Particularité{
+.Peculiarity_home{/*Particularité*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -353,7 +316,7 @@ Selection des cathégorie
   border-radius: 10%;
 }
 
-.végétarien{
+.vegetarian{/*végétarien*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -361,7 +324,7 @@ Selection des cathégorie
   border: 2px solid black ;
   outline: none;
 }
-.végan{
+.vegan{/*végan*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -369,7 +332,7 @@ Selection des cathégorie
   border: 2px solid black ;
   outline: none;
 }
-.sans_gluten{
+.gluten_free{/*sans_gluten*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
@@ -377,7 +340,7 @@ Selection des cathégorie
   border: 2px solid black ;
   outline: none;
 }
-.sans_lactose{
+.lactose_free{/*sans_lactose*/
   background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
