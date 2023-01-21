@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 echo '<link rel="stylesheet" href="Css/stylesite.css">';
 echo'<div id="imagePrincipale">';
 echo'<h1>IUT Gourmand</h1>';
