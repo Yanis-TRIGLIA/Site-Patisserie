@@ -23,7 +23,7 @@ form{
   margin: 20px;
 }
 
-  .impression{
+  .opinion{/*impression*/
   resize: none;
   background-color: #b9b9b9;
   color: #000;
@@ -32,7 +32,7 @@ form{
   border: 2px solid black ;
   outline: none;
 }
-  .NoteLabel{
+  .NoteLabel{/*déja en anglais */
   resize: none;
   background-color: #b9b9b9;
   color: #000;
@@ -44,7 +44,7 @@ form{
 /*________________________________________________________________________________________________________________________________________________________________________
 Partie haute de la page 
 */
-.selection_haute{
+.Top_page{/*selection_haute*/
   display: flex;
   flex-direction: column;
   background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
@@ -56,14 +56,14 @@ Partie haute de la page
   border: 5px solid black; 
   border-radius: 1%;
 }
-.titre{
+.title_page_recette{/*titre*/
   font-size: 50px;
 }
 
 /*________________________________________________________________________________________________________________________________________________________________________
 centre de la page 
 */
-.selection_milleu{
+.Mid_page{/*selection_milleu*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -73,22 +73,22 @@ centre de la page
   border: 5px solid black;
   border-radius: 1%;
 }
-.les_listes{
+.Mid_page_lists{/*les_listes*/
   display: flex;
   flex-direction: column;
 
 }
-.la_liste_ingredients{
+.Ingredients_list{/*la_liste_ingredients*/
   font-size: 20px;
 }
-.la_liste_ustensiles{
+.Utensils_list{/*la_liste_ustensiles*/
   font-size: 20px;
 }
-.image_galette{
+.pancake_picture{/*image_galette*/
   display: flex;
 
 }
-.galette_des_rois{
+.king_pancake{/*galette_des_rois*/
   width: 700px;
   height : 700px;
 
@@ -102,22 +102,22 @@ Bas de la page
 
 
 
-.selection_basse{
+.Bot_page{/*selection_basse*/
   background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
   background-size: cover;
   margin: 50px;
   border: 5px solid black;
   border-radius: 1%;
 }
-.explication{
+.Recipe_explanation{/*explication*/
   text-align: left;
   margin: 20px;
 }
 
-.Coûte{
+.Cost{/*Coûte*/
   text-align: right;
 }
-.auteur{
+.author{/*auteur*/
   text-align: center;
 }
 
@@ -127,7 +127,7 @@ le Commantaire
 */
 
 
-.Com{
+.Comments{/*Com*/
   display: flex;
   flex-direction: row;
   background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
@@ -138,19 +138,19 @@ le Commantaire
 
 }
 
-.Photo_de_profil_com{
+.Profil_picture_com{/*Photo_de_profil_com*/
   width: 100px;
   height : 100px;
   border: 2px solid black;
 
 }
-.Mes_not_com{
+.My_comment{/*Mes_not_com*/
   display: flex;
   flex-direction: column;
   margin: 50px;
   border-radius: 1%;
 }
-.Nom_utilisateur{
+.Username{/*Nom_utilisateur*/
   margin: 20px;
 }
 .date_publication{
@@ -158,14 +158,14 @@ le Commantaire
   flex-direction: column;
   justify-content: end;
 }
-.titre_com{
+.title_com{/*titre_com*/
   font-size: 30px;
   align-self: center;
 } 
-.message_com1{
+.message_com1{/*deja en anglais*/
   font-size: 20px;
 }
-.note_com1{
+.note_com1{/*deja en anglais*/
   font-size: 20px;
 }
 
