@@ -5,7 +5,7 @@ echo'<h1>IUT Gourmand</h1>';
 echo'<div id="premierTrait"></div>';
 echo'<h3>Le Site de Patisserie Officiel du Département Informatique</h3>';
 echo'</div>';
-
+echo '<h2 class="moment_title">Recette du Moment :</h2>';
 echo '<div class= "Random_recipe">';
 echo '<div class= "recipe_1">';
 echo  "<a href='recipe/edit/" . $A_vue[0][5] . "'>";
