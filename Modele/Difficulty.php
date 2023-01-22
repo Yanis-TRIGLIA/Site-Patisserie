@@ -1,6 +1,6 @@
 <?php
 
-final class Difficulty {
+final class Difficulty extends DbObject {
 
     private static $sql = 'SELECT NAME FROM DIFFICULTY WHERE ID_DIFFICULTY=?';
     private static $sql2 = 'INSERT INTO DIFFICULTY (NAME) VALUES (?)';
@@ -22,25 +22,39 @@ final class Difficulty {
         self::$req_prep2->execute(array($name));
     }
 
-    private $id;
-    private $name;
-
-    private function __construct($id, $name){
-        $this-> id = $id;
-        $this->name = $name;
-        
-    }
-
-    public function getName(){
-        return $this->name;              
-    }
-
-    public function getId(){
-        return $this->id;              
-    }
+	/**
+	 * Insert **this** Difficulty in the database
+	 * It also set **this** id to the given auto-incremented id in database
+	 * @return void
+	 */
+	public function insert() {
+	}
+	
+	/**
+	 * Put **this** Difficulty attributes in database
+	 * @return void
+	 */
+	public function update() {
+	}
+	
+	/**
+	 * Put database attributes in **this** Difficulty
+	 * @return void
+	 */
+	public function refresh() {
+	}
+	
+	/**
+	 * Delete **this** Difficulty in the database
+	 * @return void
+	 */
+	public function delete() {
+	}
 
     public function __toString() {
-        return "Difficulty{id=" . $this->getId() . ", name=" . $this->getName() . "}";
+        return __CLASS__ . '{' .
+            'parent:' . parent::__toString() .
+            '}';
     }
 
 }
