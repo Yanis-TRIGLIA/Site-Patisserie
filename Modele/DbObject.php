@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Abstract object to gather models common features
+ */
 abstract class DbObject {
 
     private $id;
@@ -19,7 +22,7 @@ abstract class DbObject {
      * Id getter
      * @return int
      */
-    public function getId() {
+    public final function getId() {
         return $this->id;
     }
 
@@ -27,7 +30,7 @@ abstract class DbObject {
      * Name getter
      * @return string
      */
-    public function getName() {
+    public final function getName() {
         return $this->name;
     }
 
@@ -57,5 +60,12 @@ abstract class DbObject {
      * @return void
      */
     public abstract function delete();
+
+    public function __toString() {
+        return __CLASS__ . '{' .
+            'id=' . $this->getId() .
+            ', name=' . $this->getName() .
+            '}';
+    }
 
 }
