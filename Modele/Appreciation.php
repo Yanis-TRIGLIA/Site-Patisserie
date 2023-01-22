@@ -1,6 +1,9 @@
 <?php
 
-final class Appreciation{
+/**
+ * Object representing an appreciation through database
+ */
+final class Appreciation extends DbObject {
 
     private static $sql1 = 'SELECT ID_RECIPE,ID_AUTHOR,NAME,DATE_FORMAT(PUBLICATION_DATE , "%d %b %Y") AS PUBLICATION_DATE ,GRADE,COMMENTARY FROM APPRECIATION WHERE ID_APPRECIATION=?';
     private static $sql2 = 'INSERT INTO APPRECIATION (ID_RECIPE, ID_AUTHOR, NAME, PUBLICATION_DATE, GRADE, COMMENTARY) VALUES (?, ?, ?, ?, ?)';
@@ -22,16 +25,14 @@ final class Appreciation{
         self::$req_prep2->execute(array($recipe->getId(), $author->getId(), $name, $publicationDate, $grade, $commentary));
     }
 
-    private $id;
     private $idRecipe;
     private $author;
-    private $name;
     private $publicationDate;
     private $grade;
     private $commentary;
 
     private function __construct($id, $idRecipe, $author, $name, $publicationDate, $grade, $commentary){
-        $this->id = $id;
+        parent::__construct($id, $name);
         $this->idRecipe = $idRecipe;
         $this->author = $author;
         $this-> publicationDate= $publicationDate;
@@ -39,19 +40,11 @@ final class Appreciation{
         $this->commentary = $commentary;
     }
     
-    public function getId(){
-        return $this->id;
-    }
-
     public function getIdRecipe(){
         return $this->idRecipe;
     }
     public function getAuthor(){
         return $this->author;              
-    }
-
-    public function getName() {
-        return $this->name;
     }
 
     public function getDate(){
@@ -66,8 +59,45 @@ final class Appreciation{
         return $this->commentary;              
     }
 
+    /**
+	 * Insert **this** Difficulty in the database
+	 * It also set **this** id to the given auto-incremented id in database
+	 * @return void
+	 */
+	public function insert() {
+	}
+	
+	/**
+	 * Put **this** Difficulty attributes in database
+	 * @return void
+	 */
+	public function update() {
+	}
+	
+	/**
+	 * Put database attributes in **this** Difficulty
+	 * @return void
+	 */
+	public function refresh() {
+	}
+	
+	/**
+	 * Delete **this** Difficulty in the database
+	 * @return void
+	 */
+	public function delete() {
+	}
+
     public function __toString() {
-        return "Appreciation{id=" . $this->getId() . ", recipe=" . $this->getIdRecipe() .", author=" . $this->getAuthor() . ", name=" . $this->getName() . ", date=" . $this->getDate() . ", grade=" . $this->getGrade() . ", commentary=" . $this->getCommentary(). "}";
+        return __CLASS__ . '{' .
+            'parent:' . parent::__toString() .
+            ', recipe=' . $this->getIdRecipe() .
+            ', author=' . $this->getAuthor() .
+            ', name=' . $this->getName() .
+            ', date=' . $this->getDate() .
+            ', grade=' . $this->getGrade() .
+            ', commentary=' . $this->getCommentary() .
+            '}';
     }
 
 }

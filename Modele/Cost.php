@@ -1,6 +1,9 @@
 <?php
 
-final class Cost {
+/**
+ * Object representing a cost through database
+ */
+final class Cost extends DbObject {
 
     private static $sql = 'SELECT NAME FROM COST WHERE ID_COST=?';
     private static $sql2 = 'INSERT INTO COST (NAME) VALUES (?)';
@@ -22,25 +25,39 @@ final class Cost {
         self::$req_prep2->execute(array($name));
     }
 
-    private $id;
-    private $name;
-
-    private function __construct($id, $name){
-        $this-> id = $id;
-        $this->name = $name;
-        
-    }
-
-    public function getName(){
-        return $this->name;              
-    }
-
-    public function getId(){
-        return $this->id;              
-    }
+	/**
+	 * Insert **this** Cost in the database
+	 * It also set **this** id to the given auto-incremented id in database
+	 * @return void
+	 */
+	public function insert() {
+	}
+	
+	/**
+	 * Put **this** Cost attributes in database
+	 * @return void
+	 */
+	public function update() {
+	}
+	
+	/**
+	 * Put database attributes in **this** Cost
+	 * @return void
+	 */
+	public function refresh() {
+	}
+	
+	/**
+	 * Delete **this** Cost in the database
+	 * @return void
+	 */
+	public function delete() {
+	}
 
     public function __toString() {
-        return "Cost{id=" . $this->getId() . ", name=" . $this->getName() . "}";
+        return __CLASS__ . '{' .
+            'parent:' . parent::__toString() .
+            '}';
     }
 
 }
