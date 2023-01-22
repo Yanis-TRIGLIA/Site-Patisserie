@@ -7,13 +7,15 @@ body{
 body p{
   font-size: 25px;
   font-family: cursive;
+  margin: 20px;
 }
 /*________________________________________________________________________________________________________________________________________________________________________
 Formulaire 
 */
 form{
   text-align: center;
-  background: rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   border: 5px solid black;
   -moz-border-radius: 10px; /* Mozilla (Firefox) */
   -webkit-border-radius: 10px; /* Chrome, Safari, iPhone, Android, etc. */
@@ -21,65 +23,72 @@ form{
   margin: 20px;
 }
 
-  .impression{
+  .opinion{/*impression*/
   resize: none;
-  background-color: #aaa;
+  background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
   padding: 1em;
-  border: 2px solid transparent ;
+  border: 2px solid black ;
   outline: none;
 }
-  .NoteLabel{
+  .NoteLabel{/*déja en anglais */
   resize: none;
-  background-color: #aaa;
+  background-color: #b9b9b9;
   color: #000;
   border-radius: 10%;
   padding: 1em;
-  border: 2px solid transparent ;
+  border: 2px solid black ;
   outline: none;
 }
 /*________________________________________________________________________________________________________________________________________________________________________
 Partie haute de la page 
 */
-.selection_haute{
+.Top_page{/*selection_haute*/
   display: flex;
   flex-direction: column;
-  background-color:rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   font-family: cursive;
   align-items: center;
   justify-content: center;
   margin: 50px;
   border: 5px solid black; 
+  border-radius: 1%;
+}
+.title_page_recette{/*titre*/
+  font-size: 50px;
 }
 
 /*________________________________________________________________________________________________________________________________________________________________________
 centre de la page 
 */
-.selection_milleu{
+.Mid_page{/*selection_milleu*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 100px;
-  background-color:rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   border: 5px solid black;
+  border-radius: 1%;
 }
-.les_listes{
+.Mid_page_lists{/*les_listes*/
   display: flex;
   flex-direction: column;
 
 }
-.la_liste_ingredients{
+.Ingredients_list{/*la_liste_ingredients*/
   font-size: 20px;
 }
-.la_liste_ustensiles{
+.Utensils_list{/*la_liste_ustensiles*/
   font-size: 20px;
 }
-.image_galette{
+.pancake_picture{/*image_galette*/
   display: flex;
 
 }
-.galette_des_rois{
+.king_pancake{/*galette_des_rois*/
   width: 700px;
   height : 700px;
 
@@ -93,20 +102,22 @@ Bas de la page
 
 
 
-.selection_basse{
-  background-color:rgba(212, 212, 212,0.9);
+.Bot_page{/*selection_basse*/
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   margin: 50px;
   border: 5px solid black;
+  border-radius: 1%;
 }
-.explication{
+.Recipe_explanation{/*explication*/
   text-align: left;
   margin: 20px;
 }
 
-.Coûte{
+.Cost{/*Coûte*/
   text-align: right;
 }
-.auteur{
+.author{/*auteur*/
   text-align: center;
 }
 
@@ -116,29 +127,30 @@ le Commantaire
 */
 
 
-.Com{
+.Comments{/*Com*/
   display: flex;
   flex-direction: row;
-  background-color:rgba(212, 212, 212,0.9);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   margin: 20px;
   border: 5px solid black;
+  border-radius: 1%;
 
 }
 
-.Photo_de_profil_com{
+.Profil_picture_com{/*Photo_de_profil_com*/
   width: 100px;
   height : 100px;
+  border: 2px solid black;
 
 }
-.Mes_not_com{
+.My_comment{/*Mes_not_com*/
   display: flex;
   flex-direction: column;
   margin: 50px;
+  border-radius: 1%;
 }
-.Mes_not_com p{
-  font-size: 20px;
-}
-.Nom_utilisateur{
+.Username{/*Nom_utilisateur*/
   margin: 20px;
 }
 .date_publication{
@@ -146,7 +158,16 @@ le Commantaire
   flex-direction: column;
   justify-content: end;
 }
-
+.title_com{/*titre_com*/
+  font-size: 30px;
+  align-self: center;
+} 
+.message_com1{/*deja en anglais*/
+  font-size: 20px;
+}
+.note_com1{/*deja en anglais*/
+  font-size: 20px;
+}
 
 /*________________________________________________________________________________________________________________________________________________________________________
 Barre  de navigation 
@@ -154,11 +175,10 @@ Barre  de navigation
 
 .Recherche{
   resize : none;
-  background-color: #aaa;
+  background-color: #b9b9b9;
   color: #000;
-  border-radius: 10%;
   padding: 1em;
-  border: 2px solid transparent ;
+  border: 1px solid black;
   outline: none;
 
 }
@@ -172,6 +192,7 @@ Barre  de navigation
 }
 .barre_de_nav{
   align-items: flex-start;
+  border: 5px solid black;
 }
 
 .barre_de_nav ul {
@@ -179,10 +200,12 @@ Barre  de navigation
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: 	rgb(119,77,37);
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+  background-size: cover;
   position: fixed;
   top: 0;
   width: 100%;
+  border: 2px solid black;
 }
   
 .barre_de_nav li {
@@ -202,20 +225,19 @@ Barre  de navigation
   text-decoration: none;
 }
   
-.barre_de_nav li a:hover:not(.active) {
-  background-color: 	rgb(119,77,37);
-}
-  
-  .active {
+  .sigin {
   background-color:#444;
   height: 30px;
 }
+ .login{
+  background-color: 	rgb(119,77,37);
+  height: 30px;
+ }
   .backgroundimage{
   background-image:url(https://media.istockphoto.com/id/815601974/fr/vectoriel/crocodile-de-dessin-anim%C3%A9-mignon-alligator-ou-dinosaure-portant-costume-noir-homme.webp?s=2048x2048&w=is&k=20&c=FTHuDeGc1mZ0mz8O5I7BSsnY56tv58YzSkhPzfgllKw=);
   background-size:cover;
   width: 32px;
   height: 32px;
-  
 }
   
 
@@ -237,9 +259,7 @@ Barre  de navigation
   text-decoration: none;
 }
 
-.barre_de_nav ul.topnav li a:hover:not(.active) {background-color: #111;}
-
-.barre_de_nav ul.topnav li a.active {background-color: #444;}
+.barre_de_nav ul.topnav li a.sigin {background-color: #444;}
 
 .barre_de_nav ul.topnav li.right {float: right;}
 
@@ -247,4 +267,3 @@ Barre  de navigation
   .barre_de_nav ul.topnav li.right, 
   .barre_de_nav ul.topnav li {float: none;}
 }
-
