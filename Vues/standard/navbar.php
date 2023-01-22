@@ -1,10 +1,16 @@
-<?php
+<?php 
 echo '<div class="Navigation_bar">';
+echo '<form method="post" action="home/search">';
 echo '<ul>';
-echo '<li class><a class="backgroundimage" href="Accueil.html">_ </a></li>';
-echo '<li style="float:middle"><textarea class="Search" name="Search"rows="2" cols="33" placeholder="Recherche..."></textarea></li>';
-echo '<li style="float:middle"><button class="Searchbutton" type="button"></button></li>';
+echo '<li class><a class="backgroundimage" href="https://tpphp1.alwaysdata.net/home">_ </a></li>';
+echo '<li style="float:middle">';
+echo '<input class="Search" type="text" name="query" placeholder="Recherche...">';
+echo '</li>';
+echo '<li style="float:middle">';
+echo '<button class="Searchbutton" type="submit"></button>';
+echo '</li>';
 echo '<li style="float:right"><a class="login" href="#login">se connecter</a></li>';
 echo '<li style="float:right"><a class="sigin" href="#signin">s\'enregistrer</a></li>';
 echo '</ul>';
+echo '</form>';
 echo '</div>';
