@@ -27,7 +27,6 @@ final class ControleurRecipe
     {
         $id = ($A_urlParams[0]);
         $O_recipe = Recipe::getById($id);
-        Vue::montrer('standard/entete', array('recipe'=> $O_recipe->getName()));
         Vue::montrer('standard/navbar');
 
         $averageGrade = $this->averageGrade($O_recipe);
