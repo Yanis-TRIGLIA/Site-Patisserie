@@ -27,7 +27,6 @@ final class ControleurRecipe
     {
         $id = ($A_urlParams[0]);
         $O_recipe = Recipe::getById($id);
-        Vue::montrer('standard/entete', array('recipe'=> $O_recipe->getName()));
         Vue::montrer('standard/navbar');
 
         $averageGrade = $this->averageGrade($O_recipe);
@@ -38,29 +37,13 @@ final class ControleurRecipe
         Vue::montrer('recipe/listUstensileView', array('recipe' => $O_recipe->getUstensils()));
         Vue::montrer('recipe/imageView', [$O_recipe->getImageUrl(),$O_recipe->getName()]);
 
-        $textInfo = [$O_recipe->getDescription(),$O_recipe->getAuthor()->getDisplayName(),$O_recipe->getCost()->getName()];
+        $textInfo = [$O_recipe->getDescription(),$O_recipe->getAuthor()->getName(),$O_recipe->getCost()->getName()];
         Vue::montrer('recipe/textView', $textInfo);
 
         Vue::montrer('recipe/comentaryView', $O_recipe->getAppreciations());
         Vue::montrer('recipe/formView');
     }
    
-   /*just for the test
-   public function editAction()
-   {
-       $O_recipe =  new Recipe();
-
-       Vue::montrer('standard/entete', array('recipe'=> $O_recipe->donneMessage()));
-       Vue::montrer('standard/navbar');
-       Vue::montrer('recipe/mainInfoView', array('recipe' => $O_recipe->donneMessage1()));
-       Vue::montrer('recipe/listIngredientView', array('recipe' => $O_recipe->donneMessage2()));
-       Vue::montrer('recipe/listUstensileView', array('recipe' => $O_recipe->donneMessage3()));
-       Vue::montrer('recipe/imageView', array('recipe' => $O_recipe->donneMessage4()));
-       Vue::montrer('recipe/textView', array('recipe' => $O_recipe->donneMessage5()));
-       Vue::montrer('recipe/comentaryView', array('recipe' => $O_recipe->donneMessage6()));
-       Vue::montrer('standard/pied');
-    }*/
-
     private function averageGrade($O_recipe)
     {
         $average = 0;
