@@ -1,6 +1,6 @@
 <?php
 
-final class Ustensil {
+final class Ustensil extends DbObject {
 
     private static $sql = 'SELECT NAME FROM USTENSIL WHERE ID_USTENSIL=?';
     private static $sql2 = 'INSERT INTO USTENSIL (NAME) VALUES (?)';
@@ -22,25 +22,39 @@ final class Ustensil {
         self::$req_prep2->execute($name);
     }
 
-    private $id;
-    private $name;
-
-    private function __construct($id,$name){
-        $this-> id = $id;
-        $this->name = $name;
-        
-    }
-
-    public function getName(){
-        return $this->name;              
-    }
-
-    public function getId(){
-        return $this->id;              
-    }
+	/**
+	 * Insert **this** Ustensil in the database
+	 * It also set **this** id to the given auto-incremented id in database
+	 * @return void
+	 */
+	public function insert() {
+	}
+	
+	/**
+	 * Put **this** Ustensil attributes in database
+	 * @return void
+	 */
+	public function update() {
+	}
+	
+	/**
+	 * Put database attributes in **this** Ustensil
+	 * @return void
+	 */
+	public function refresh() {
+	}
+	
+	/**
+	 * Delete **this** Ustensil in the database
+	 * @return void
+	 */
+	public function delete() {
+	}
 
     public function __toString() {
-        return "Ustensil{id=" . $this->getId() . ", name=" . $this->getName() . "}";
+        return __CLASS__ . '{' .
+            'parent:' . parent::__toString() .
+            '}';
     }
 
 }
