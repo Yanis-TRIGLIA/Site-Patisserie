@@ -1,6 +1,6 @@
 <?php
 
-final class User{
+final class User extends DbObject {
 
     private static $sql = 'SELECT LOGIN,NAME,DATE_FORMAT(FIRST_SEEN, "%d %b %Y") AS FIRST_SEEN, DATE_FORMAT(LAST_SEEN, "%d %b %Y") AS LAST_SEEN, PP_URL FROM USER WHERE ID_USER=?';
     private static $sql2 = 'INSERT INTO (LOGIN, HASHED_PASSWORD, NAME, FIRT_SEEN, LAST_SEEN, PP_URL) VALUES (?, ?, ?, ?, ?, ?)';
@@ -22,32 +22,21 @@ final class User{
         self::$req_prep2->execute(array($login, $name, $firstSeen, $lastSeen, $ppUrl));
     }
 
-    private $id;
     private $login;
-    private $name;
     private $firstSeen;
     private $lastSeen;
     private $ppUrl;
     
-    private function __construct($id, $login, $name, $firstSeen, $lastSeen, $ppUrl){
-        $this-> id = $id;
+    private function __construct($id, $name, $login, $firstSeen, $lastSeen, $ppUrl){
+        parent::__construct($id, $name);
         $this->login = $login;
-        $this-> name= $name;
         $this-> firstSeen= $firstSeen;
         $this->lastSeen = $lastSeen;
         $this->ppUrl = $ppUrl;
     }
     
-    public function getId(){
-        return $this->id;              
-    }
-
     public function getLogin(){
         return $this->login;              
-    }
-
-    public function getName(){
-        return $this->name;
     }
 
     public function getFirstSeen(){
@@ -62,8 +51,43 @@ final class User{
         return $this->ppUrl;
     }
 
+	/**
+	 * Insert **this** User in the database
+	 * It also set **this** id to the given auto-incremented id in database
+	 * @return void
+	 */
+	public function insert() {
+	}
+	
+	/**
+	 * Put **this** User attributes in database
+	 * @return void
+	 */
+	public function update() {
+	}
+	
+	/**
+	 * Put database attributes in **this** User
+	 * @return void
+	 */
+	public function refresh() {
+	}
+	
+	/**
+	 * Delete **this** User in the database
+	 * @return void
+	 */
+	public function delete() {
+	}
+
     public function __toString() {
-        return "User{id=" . $this->getId() . ", login=" . $this->getLogin() . ", name=" . $this->getName() . ", firstSeen=" . $this->getFirstSeen() . ", lastSeen=" . $this->getLastSeen() . ", ppUrl=" . $this->getPpUrl() . "}";
+        return __CLASS__ . '{' .
+            'parent:' . parent::__toString() .
+            ', login=' . $this->getLogin() .
+            ', firstSeen=' . $this->getFirstSeen() .
+            ', lastSeen=' . $this->getLastSeen() .
+            ', ppUrl=' . $this->getPpUrl() .
+            '}';
     }
 
 }
