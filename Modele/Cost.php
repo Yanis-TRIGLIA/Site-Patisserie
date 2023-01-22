@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Object representing a cost through database
+ */
 final class Cost extends DbObject {
 
     private static $sql = 'SELECT NAME FROM COST WHERE ID_COST=?';

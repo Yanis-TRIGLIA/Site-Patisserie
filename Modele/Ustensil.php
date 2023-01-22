@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Object representing an ustensil through database
+ */
 final class Ustensil extends DbObject {
 
     private static $sql = 'SELECT NAME FROM USTENSIL WHERE ID_USTENSIL=?';

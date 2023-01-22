@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Object representing a difficulty through database
+ */
 final class Difficulty extends DbObject {
 
     private static $sql = 'SELECT NAME FROM DIFFICULTY WHERE ID_DIFFICULTY=?';

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Object representing an ingredient through database
+ */
 final class Ingredient extends DbObject {
 
     private static $sql = 'SELECT NAME, UNIT FROM INGREDIENT WHERE ID_INGREDIENT=?';

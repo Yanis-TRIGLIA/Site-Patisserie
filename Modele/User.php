@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Object representing an user through database
+ */
 final class User extends DbObject {
 
     private static $sql = 'SELECT LOGIN,NAME,DATE_FORMAT(FIRST_SEEN, "%d %b %Y") AS FIRST_SEEN, DATE_FORMAT(LAST_SEEN, "%d %b %Y") AS LAST_SEEN, PP_URL FROM USER WHERE ID_USER=?';

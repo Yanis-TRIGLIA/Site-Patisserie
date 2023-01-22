@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * Object representing a recipe through database
+ */
 final class Recipe extends DbObject {
 
 

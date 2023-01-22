@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Object representing an appreciation through database
+ */
 final class Appreciation extends DbObject {
 
     private static $sql1 = 'SELECT ID_RECIPE,ID_AUTHOR,NAME,DATE_FORMAT(PUBLICATION_DATE , "%d %b %Y") AS PUBLICATION_DATE ,GRADE,COMMENTARY FROM APPRECIATION WHERE ID_APPRECIATION=?';
