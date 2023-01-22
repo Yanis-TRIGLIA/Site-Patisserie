@@ -1,10 +1,11 @@
 <?php
 
+
 class ControleurHome
 {
 
     public function defautAction()
-    {
+    {   
         $nums = array();
         while (count($nums) < 3) {
             $num = rand(1, 5);
@@ -93,4 +94,28 @@ class ControleurHome
         }
         return $level;
     }
+
+    private function difficulty($recipe)
+    {
+
+        $difficulty = $recipe->getDifficulty();
+        for ($i = 0; $i < ($difficulty); ++$i) {
+            $level = $difficulty->getName();
+        }
+        return $level;
+    }
+
+public function searchAction() {
+        $query = $_POST['query'];
+        $searchResults = Search::searchByName($query);
+        $array = [];
+        foreach ($searchResults as $result) {
+            $difficulty = $this->difficulty($result);
+            $recipe = [$result->getImageUrl(), $result->getName(), $difficulty, $result->getDuration(), $result->getId()];
+            array_push($array, $recipe);
+        }
+            Vue::montrer('home/SearchResults', $array);
+        }
+    
+
 }
