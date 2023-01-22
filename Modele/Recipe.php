@@ -1,7 +1,7 @@
 <?php
 
 
-final class Recipe{
+final class Recipe extends DbObject {
 
 
     private static $sql1 = 'SELECT NAME,DESCRIPTION,DURATION,ID_AUTHOR,ID_DIFFICULTY,ID_COST, IMAGE_URL FROM RECIPE WHERE ID_RECIPE=?';
@@ -41,7 +41,7 @@ final class Recipe{
         self::$req_prep3->execute(array($id));
         $ingredients = array();
         while ($idIngredient = self::$req_prep3->fetch())
-            array_push($ingredients, Ingredient::getById($idIngredient['ID_INGREDIENT'], $idIngredient['QUANTITY']));
+            array_push($ingredients, Ingredient::getById($idIngredient['ID_INGREDIENT']));
         self::$req_prep4->execute(array($id));
         $appreciations = array();
         while ($idAppreciation = self::$req_prep4->fetch())
@@ -54,8 +54,6 @@ final class Recipe{
         // TODO put ustensils and ingredients (after reformated all objects stucture)
     }
 
-    private $id;
-    private $name;
     private $description;
     private $duration;
     private $author;
@@ -66,9 +64,11 @@ final class Recipe{
     private $appreciations;
     private $imageUrl;
 
-    private function __construct($id, $name, $description, $duration, $author, $difficulty, $cost, $ustensils,$ingredients, $appreciations, $imageUrl){
-        $this-> id = $id;
-        $this->name = $name;
+    private function __construct(
+        $id, $name, $description, $duration, $author, $difficulty, $cost,
+        $ustensils, $ingredients, $appreciations, $imageUrl
+    ) {
+        parent::__construct($id, $name);
         $this-> description= $description;
         $this-> duration= $duration;
         $this->author = $author;
@@ -78,14 +78,6 @@ final class Recipe{
         $this->ingredients = $ingredients;
         $this->appreciations = $appreciations;
         $this->imageUrl = $imageUrl;
-    }
-    
-    public function getId(){
-        return $this->id;              
-    }
-
-    public function getName(){
-        return $this->name;              
     }
 
     public function getDescription(){
@@ -124,11 +116,49 @@ final class Recipe{
         return $this->imageUrl;
     }
 
+    /**
+	 * Insert **this** Recipe in the database
+	 * It also set **this** id to the given auto-incremented id in database
+	 * @return void
+	 */
+	public function insert() {
+	}
+	
+	/**
+	 * Put **this** Recipe attributes in database
+	 * @return void
+	 */
+	public function update() {
+	}
+	
+	/**
+	 * Put database attributes in **this** Recipe
+	 * @return void
+	 */
+	public function refresh() {
+	}
+	
+	/**
+	 * Delete **this** Recipe in the database
+	 * @return void
+	 */
+	public function delete() {
+	}
+
     public function __toString() {
-
-        return "Recipe{id=" . $this->getId() . ", name=" . $this->getName() . ", description=" . implode($this->getDescription()) . ", duration=" . $this->getDuration() . ", author=" . $this->getAuthor() . ", difficulty=" . $this->getDifficulty() . ", cost=" . $this->getCost() . ", ustensils=" . implode($this->getUstensils()) .", ingredient=" .implode($this->getIngredients()) . ", appreciations=" . implode($this->getAppreciations()) . ", imageUrl=" . $this->getImageUrl() . "}";
+        return __CLASS__ . '{' .
+            'parent:' . parent::__toString() .
+            ', description=' . implode($this->getDescription()) .
+            ', duration=' . $this->getDuration() .
+            ', author=' . $this->getAuthor() .
+            ', difficulty=' . $this->getDifficulty() .
+            ', cost=' . $this->getCost() .
+            ', ustensils=' . implode($this->getUstensils()) .
+            ', ingredient=' .implode($this->getIngredients()) .
+            ', appreciations=' . implode($this->getAppreciations()) .
+            ', imageUrl=' . $this->getImageUrl() .
+            '}';
     }
-
 
 }
 
