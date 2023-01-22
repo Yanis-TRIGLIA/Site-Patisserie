@@ -11,7 +11,6 @@ body {
 }
 
 body p {
-    color: rgb(224, 189, 72);
     font-size: 25px;
     font-family: cursive;
     margin: 20px;
@@ -551,6 +550,12 @@ h3 {
     border-radius: 5%;
 
 }
+.moment_title {
+    text-align: center; /* center text horizontally */
+    margin: 0 auto; /* center element horizontally */
+    padding-top: 5%;
+    font-size: 250%;
+}
 
 /*________________________________________________________________________________________________________________________________________________________________________
         recipe 1
@@ -925,10 +930,7 @@ footer {
     width: 100%;
 }
 
-form {
-    margin:0 auto;
-    max-width: 900px;
-}
+
 
 input,
 textarea,
@@ -1035,16 +1037,16 @@ button:hover {
 }
 
 /*________________________________________________________________________________________________________________________________________________________________________
-        
+  search page      
         */
 .Result_recipe {
-    background-color: #f2f2f2; /* gris clair */
-    border: 1px solid black; /* bordure noire */
-    padding: 16px; /* espacement intérieur */
-    width: 50%; /* Largeur adaptée */
-    margin: 16px auto; /* marges automatiques */
-    border-radius: 5px; /* coins arrondis */
-    box-shadow: 2px 2px 2px #ccc; /* ombre légère */
+    background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
+    border: 1px solid black; 
+    padding: 16px; 
+    width: 50%; 
+    margin: 16px auto; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 2px #ccc; 
 }
 .Picture_result_recipe {
     /*image*/
