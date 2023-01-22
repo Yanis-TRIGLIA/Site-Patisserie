@@ -1,6 +1,6 @@
 <?php 
 echo '<div class="Navigation_bar">';
-echo '<form method="post" action="home/search">';
+echo '<form method="post" action="home/search" class="Navigation_bar">';
 echo '<ul>';
 echo '<li class><a class="backgroundimage" href="https://tpphp1.alwaysdata.net/home">_ </a></li>';
 echo '<li style="float:middle">';
