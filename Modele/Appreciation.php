@@ -91,7 +91,6 @@ final class Appreciation extends DbObject {
     public function __toString() {
         return __CLASS__ . '{' .
             'parent:' . parent::__toString() .
-            ', id=' . $this->getId() .
             ', recipe=' . $this->getIdRecipe() .
             ', author=' . $this->getAuthor() .
             ', name=' . $this->getName() .
