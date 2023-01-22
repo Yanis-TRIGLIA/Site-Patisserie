@@ -15,7 +15,7 @@ final class ControleurRecipe
         Vue::montrer('recipe/listUstensileView', array('recipe' => $O_recipe->getUstensils()));
         Vue::montrer('recipe/imageView', [$O_recipe->getImageUrl(),$O_recipe->getName()]);
 
-        $textInfo = [$O_recipe->getDescription(),$O_recipe->getAuthor()->getDisplayName(),$O_recipe->getCost()->getName()];
+        $textInfo = [$O_recipe->getDescription(),$O_recipe->getAuthor()->getName(),$O_recipe->getCost()->getName()];
         Vue::montrer('recipe/textView', $textInfo);
 
         Vue::montrer('recipe/comentaryView', $O_recipe->getAppreciations());
