@@ -27,11 +27,29 @@ abstract class DbObject {
     }
 
     /**
+     * Id setter
+     * @param int $id
+     * @return void
+     */
+    public final function setId($id) {
+        $this->id = $id;
+    }
+
+    /**
      * Name getter
      * @return string
      */
     public final function getName() {
         return $this->name;
+    }
+
+    /**
+     * Name setter
+     * @param string $name
+     * @return void
+     */
+    public final function setName($name) {
+        $this->name = $name;
     }
 
     // Database interactions
