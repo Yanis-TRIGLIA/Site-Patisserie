@@ -5,24 +5,17 @@
  */
 final class Cost extends DbObject {
 
-    private static $sql = 'SELECT NAME FROM COST WHERE ID_COST=?';
-    private static $sql2 = 'INSERT INTO COST (NAME) VALUES (?)';
-    private static $req_prep;
-    private static $req_prep2;
+	private static $reqManager = new RequestsManager('COST');
 
-    static function prepare() {
-        self::$req_prep = modele::$pdo->prepare(self::$sql);
-        self::$req_prep2 = modele::$pdo->prepare(self::$sql2);
+    static function init() {
+		self::$reqManager->add('insert', 'INSERT INTO COST VALUES (?, ?)');
     }
 
-    public static function getById($id){
-        self::$req_prep->execute(array($id));
-        $row = self::$req_prep->fetch();
-        return new Cost($id, $row['NAME']);
-    }
-
-    public static function createCost($name) {
-        self::$req_prep2->execute(array($name));
+    public static function getById($id) {
+		echo 1;
+        $row = self::$reqManager->execute('by_id', array($id))->fetch();
+		echo 2;
+        return new Cost($row['ID'], $row['NAME']);
     }
 
 	/**
@@ -31,6 +24,7 @@ final class Cost extends DbObject {
 	 * @return void
 	 */
 	public function insert() {
+		self::$reqManager->execute('insert', array($this->getId(), $this->getName()));
 	}
 	
 	/**
@@ -62,4 +56,4 @@ final class Cost extends DbObject {
 
 }
 
-Cost::prepare();
+Cost::init();
