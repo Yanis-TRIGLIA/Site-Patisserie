@@ -121,15 +121,21 @@ class ControleurHome
     {
         $difficulty = $_POST['difficulty'];
         $name = $_POST['name'];
+        $duration = $_POST['duration'];
         $filteredResults = [];
         $allResults = Search::searchByName($name);
         foreach ($allResults as $result) {
             $resultDifficulty = $this->difficulty($result);
-            if ($resultDifficulty == $difficulty && $result->getName() == $name) {
+            if ($resultDifficulty == $difficulty && $result->getName() == $name && $result->getDuration() == $duration) {
                 $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
                 array_push($filteredResults, $recipe);
             }
-            else if($resultDifficulty == $difficulty){
+            else if($resultDifficulty == $difficulty && $result->getDuration() == $duration){
+                $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
+                array_push($filteredResults, $recipe);
+
+            }
+            else if($resultDifficulty == $difficulty ){
                 $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
                 array_push($filteredResults, $recipe);
 
