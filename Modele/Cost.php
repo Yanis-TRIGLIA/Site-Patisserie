@@ -5,26 +5,29 @@
  */
 final class Cost extends DbObject {
 
-	private static $reqManager = new RequestsManager('COST');
+	private static $reqManager;
 
     static function init() {
-		self::$reqManager->add('insert', 'INSERT INTO COST VALUES (?, ?)');
+		self::$reqManager = new RequestsManager('COST');
+		self::$reqManager->add('insert', 'INSERT INTO COST (NAME) VALUES (?)');
+		self::$reqManager->add('update', 'UPDATE COST SET NAME=? WHERE ID_COST=?');
+        // self::$reqManager->add('delete', 'DELETE FROM COST WHERE ID_COST=?');
     }
 
     public static function getById($id) {
-		echo 1;
         $row = self::$reqManager->execute('by_id', array($id))->fetch();
-		echo 2;
-        return new Cost($row['ID'], $row['NAME']);
+        return new Cost($row['ID_COST'], $row['NAME']);
     }
 
 	/**
 	 * Insert **this** Cost in the database
 	 * It also set **this** id to the given auto-incremented id in database
+     * Be careful ! It doesn't check if object is already in database
 	 * @return void
 	 */
 	public function insert() {
-		self::$reqManager->execute('insert', array($this->getId(), $this->getName()));
+		self::$reqManager->execute('insert', array($this->getName()));
+		$this->setId(modele::$pdo->lastInsertId());
 	}
 	
 	/**
@@ -32,6 +35,7 @@ final class Cost extends DbObject {
 	 * @return void
 	 */
 	public function update() {
+		self::$reqManager->execute('update', array($this->getName(), $this->getId()));
 	}
 	
 	/**
@@ -39,6 +43,8 @@ final class Cost extends DbObject {
 	 * @return void
 	 */
 	public function refresh() {
+		$row = self::$reqManager->execute('by_id', array($this->getId()))->fetch();
+		$this->setName($row['NAME']);
 	}
 	
 	/**
@@ -46,6 +52,7 @@ final class Cost extends DbObject {
 	 * @return void
 	 */
 	public function delete() {
+		// self::$reqManager->execute('delete', array($this->getId()));
 	}
 
     public function __toString() {
