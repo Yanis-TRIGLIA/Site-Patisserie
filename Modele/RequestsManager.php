@@ -7,6 +7,11 @@ final class RequestsManager {
 
     private const requests = [];
 
+    public function __construct($table) {
+        $this->add('*', 'SELECT * FROM ' . $table);
+        $this->add('by_id', 'SELECT * FROM ' . $table . ' WHERE ID=?');
+    }
+
     /**
      * Prepare a new sql request stored under an alias
      * @param mixed $name The alias to store the request
