@@ -5,11 +5,11 @@
  */
 final class RequestsManager {
 
-    private const requests = [];
+    private $requests = [];
 
     public function __construct($table) {
         $this->add('*', 'SELECT * FROM ' . $table);
-        $this->add('by_id', 'SELECT * FROM ' . $table . ' WHERE ID=?');
+        $this->add('by_id', 'SELECT * FROM ' . $table . ' WHERE ID_' . $table . '=?');
     }
 
     /**
@@ -19,7 +19,7 @@ final class RequestsManager {
      * @return void
      */
     public function add($name, $req) {
-        $this::requests[$name] = modele::$pdo->prepare($req);
+        $this->requests[$name] = modele::$pdo->prepare($req);
     }
 
     /**
@@ -28,9 +28,9 @@ final class RequestsManager {
      * @param array $params Arguments for the execution
      * @return PDOStatement
      */
-    public function execute($name, $params) {
-        $this::requests[$name]->execute($params);
-        return $this::requests[$name];
+    public function execute($name, $params = null) {
+        $this->requests[$name]->execute($params);
+        return $this->requests[$name];
     }
 
 }
