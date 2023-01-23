@@ -1,19 +1,44 @@
 <?php
 echo '<link rel="stylesheet" href="/Css/stylesite.css">';
-
+echo '<div class="Navigation_bar">';
+echo '<form method="post" action="home/search" class="Navigation_bar">';
+echo '<ul>';
+echo '<li class><a class="backgroundimage" href="https://tpphp1.alwaysdata.net/home">_ </a></li>';
+echo '<li style="float:middle">';
+echo '<input class="Search" type="text" name="query" placeholder="Recherche...">';
+echo '</li>';
+echo '<li style="float:middle">';
+echo '<button class="Searchbutton" type="submit"></button>';
+echo '</li>';
+echo '<li style="float:right"><a class="login" href="#login">se connecter</a></li>';
+echo '<li style="float:right"><a class="sigin" href="#signin">s\'enregistrer</a></li>';
+echo '</ul>';
+echo '</form>';
+echo '</div>';
+echo '<br>';
+echo '<br>';
 echo '<button id="filter-button" onclick="showFilters()">Filtres</button>';
 echo '<div id="filter-options" style="display: none;">';
 echo '<form method="post" action="/home/filter">';
+echo '<label for="name">Nom :</label>';
 echo '<input type="text" name="name" placeholder="Rechercher une recette">';
+echo '<br>';
+echo '<br>';
+echo '<br>';
 echo '<label for="difficulty">Difficulté :</label>';
 echo '<select name="difficulty" id="difficulty">';
 echo '<option value=Facile>Facile</option>';
 echo '<option value=Moyen>Moyen</option>';
 echo '<option value=Difficile>Difficile</option>';
 echo '</select>';
+echo '<br>';
+echo '<br>';
+echo '<br>';
 echo '<label for="duration">Durée :</label>';
 echo '<input type="text" name="duration" id="duration" placeholder="en minutes">';
-echo '<input type="submit" value="Filtrer">';
+echo '<br>';
+echo '<br>';
+echo '<button class="Filtrer" type="submit">Filtrer</button>';
 echo '</form>';
 echo '</div>';
  ?>
