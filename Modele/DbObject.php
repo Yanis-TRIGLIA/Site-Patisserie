@@ -57,6 +57,7 @@ abstract class DbObject {
     /**
      * Insert **this** Object in the database
      * It also set **this** id to the given auto-incremented id in database
+     * Be careful ! It doesn't check if object is already in database
      * @return void
      */
     public abstract function insert();
