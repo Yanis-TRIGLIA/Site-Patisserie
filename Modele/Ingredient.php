@@ -27,7 +27,7 @@ final class Ingredient extends DbObject {
 
     private $unit;
 
-    private function __construct($id, $name, $unit){
+    private function __construct(?int $id, $name, $unit){
         parent::__construct($id, $name);
         $this->unit = $unit;
     }

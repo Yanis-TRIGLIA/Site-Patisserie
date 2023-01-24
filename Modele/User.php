@@ -30,7 +30,7 @@ final class User extends DbObject {
     private $lastSeen;
     private $ppUrl;
     
-    private function __construct($id, $name, $login, $firstSeen, $lastSeen, $ppUrl){
+    private function __construct(?int $id, $name, $login, $firstSeen, $lastSeen, $ppUrl){
         parent::__construct($id, $name);
         $this->login = $login;
         $this-> firstSeen= $firstSeen;

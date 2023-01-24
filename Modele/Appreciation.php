@@ -31,7 +31,7 @@ final class Appreciation extends DbObject {
     private $grade;
     private $commentary;
 
-    private function __construct($id, $idRecipe, $author, $name, $publicationDate, $grade, $commentary){
+    private function __construct(?int $id, $idRecipe, $author, $name, $publicationDate, $grade, $commentary){
         parent::__construct($id, $name);
         $this->idRecipe = $idRecipe;
         $this->author = $author;

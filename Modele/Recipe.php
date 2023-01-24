@@ -67,7 +67,7 @@ final class Recipe extends DbObject {
     private $imageUrl;
 
     private function __construct(
-        $id, $name, $description, $duration, $author, $difficulty, $cost,
+        ?int $id, $name, $description, $duration, $author, $difficulty, $cost,
         $ustensils, $ingredients, $appreciations, $imageUrl
     ) {
         parent::__construct($id, $name);
