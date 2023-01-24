@@ -2,9 +2,10 @@
 
 final class ControleurRecipe
 {
-    public function defautAction()
+    public function defautAction($A_urlParams)
     {
-        $O_recipe = Recipe::getById(1);
+        $id = ($A_urlParams[0]);
+        $O_recipe = Recipe::getById($id);
         Vue::montrer('standard/navbar');
 
         $averageGrade = $this->averageGrade($O_recipe);
