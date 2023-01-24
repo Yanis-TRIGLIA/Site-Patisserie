@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #e2bc74;
+    margin:0;
 
 
 
@@ -44,7 +45,6 @@ Navigation bar for all pages
 .Navigation_bar {
     /*barre_de_nav*/
     align-items: flex-start;
-    border: 5px solid black;
 }
 
 .Navigation_bar ul {
@@ -154,6 +154,7 @@ CSS "Page_Profil.html"
     /*Profil*/
     margin: 20px;
     padding-right: 10px;
+    font-size: 200%;
 }
 
 /*________________________________________________________________________________________________________________________________________________________________________
@@ -247,14 +248,15 @@ form {
     text-align: center;
     background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
     background-size: cover;
-    border: 5px solid black;
     -moz-border-radius: 10px;
     /* Mozilla (Firefox) */
     -webkit-border-radius: 10px;
     /* Chrome, Safari, iPhone, Android, etc. */
     border-radius: 10px;
     /* Internet Explorer 9, Opera */
-    margin: 20px;
+    margin: 0;
+
+
 }
 
 .submit {
@@ -307,7 +309,7 @@ form {
 
 .title_page_recette {
     /*titre*/
-    font-size: 50px;
+    font-size: 75px;
 }
 
 /*________________________________________________________________________________________________________________________________________________________________________
@@ -460,7 +462,6 @@ form {
 
 /*________________________________________________________________________________________________________________________________________________________________________
 CSS "Acceuil.html"
-
 */
 
 .Title_page_accueil {
@@ -474,7 +475,7 @@ CSS "Acceuil.html"
     border: 5px solid black;
     margin-left: auto;
     margin-right: auto;
-    font-size: 40px;
+    font-size: 40%;
     border-radius: 10%;
 
 
@@ -487,16 +488,21 @@ CSS "Acceuil.html"
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 799px;
+    height: 500px;
 }
 
 h1 {
     font-family: 'Dancing Script', cursive;
     text-align: center;
     color: rgb(0, 0, 0);
-    font-size: 6em;
-    margin-top: 100px;
+    font-size: 600%;
+    margin-top: 10%;
     text-shadow: 1px 3px 2px black;
+}
+
+/* Patch titre trop grand */
+.Title_page_profil h1 { 
+    font-size: 100px; 
 }
 
 h3 {
@@ -515,8 +521,8 @@ h3 {
 
 .Home {
     /*Accueil*/
-    margin: 20px;
-    padding-right: 10px;
+    margin: 10%;
+    padding-right: 10%;
 }
 
 .recommandation {
@@ -535,7 +541,7 @@ h3 {
 
 .Title_Recomantation {
     /*titre_Recomantation*/
-    margin: 20px;
+    margin: 10%;
 }
 
 
@@ -547,7 +553,6 @@ h3 {
     /*recette_random*/
     display: flex;
     flex-direction: row;
-    border-radius: 5%;
 
 }
 .moment_title {
@@ -563,18 +568,18 @@ h3 {
 .recipe_1 {
     display: flex;
     flex-direction: column;
-    margin: 80px;
+    margin: 5%;
     background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
     background-size: cover;
     border: 3px solid black;
     border-radius: 1%;
 
-    position: relative;
+    /*position: relative;*/
     color: black;
 }
 
 .recipe_1:hover {
-    box-shadow: 0px 0px 150px #000000;
+    box-shadow: 0 10px 50px #000000;
     z-index: 2;
     transition: all 200ms ease-out;
     transform: scale(1.1);
@@ -590,6 +595,7 @@ a:link {
     width: 350px;
     height: 350px;
 
+
 }
 
 
@@ -600,7 +606,7 @@ a:link {
 .recipe_2 {
     display: flex;
     flex-direction: column;
-    margin: 80px;
+    margin: 5%;
     background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
     background-size: cover;
     border: 3px solid black;
@@ -608,7 +614,7 @@ a:link {
 }
 
 .recipe_2:hover {
-    box-shadow: 0px 0px 150px #000000;
+    box-shadow: 0 10px 50px #000000;
     z-index: 1;
     transition: all 200ms ease-out;
     transform: scale(1.1);
@@ -618,6 +624,7 @@ a:link {
 .Picture_recipe_2 {
     width: 350px;
     height: 350px;
+
 
 }
 
@@ -630,7 +637,7 @@ a:link {
 .recipe_3 {
     display: flex;
     flex-direction: column;
-    margin: 90px;
+    margin: 5%;
     background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
     background-size: cover;
     border: 3px solid black;
@@ -638,7 +645,7 @@ a:link {
 }
 
 .recipe_3:hover {
-    box-shadow: 0px 0px 150px #000000;
+    box-shadow: 0 10px 50px #000000;
     z-index: 1;
     transition: all 200ms ease-out;
     transform: scale(1.1);
@@ -649,273 +656,7 @@ a:link {
     width: 350px;
     height: 350px;
 
-}
 
-
-
-
-/*________________________________________________________________________________________________________________________________________________________________________
-        category
-        */
-
-.category {
-    /*cathegorie*/
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url(https://img.freepik.com/photos-gratuite/fond-bois-naturel_24837-269.jpg?w=1060&t=st=1674208907~exp=1674209507~hmac=8ca401b40067fc124452525362b1cfb92aa92840c88a9407530314c87379add8);
-    background-size: cover;
-    border: 5px solid black;
-    border-radius: 1%;
-}
-
-
-.Ingredient_home {
-    /*Ingrédient*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    resize: none;
-    border-radius: 10%;
-}
-
-.textareaIngredient_home {
-    /*textareaIngrédient*/
-    resize: none;
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-
-.Utensils_home {
-    /*Ustensile*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    resize: none;
-    border-radius: 10%;
-}
-
-.textareaUtensil_home {
-    /*textareaUstensile*/
-    resize: none;
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-
-.Time_setup {
-    /*Temps_de_préparation*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    resize: none;
-    border-radius: 10%;
-}
-
-.textareaTime_setup {
-    /*textareaTemps_de_préparation*/
-    resize: none;
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-
-.Type_of_cooking {
-    /*type_de_cuisson*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    resize: none;
-    border-radius: 10%;
-}
-
-.textareaType_of_cooking {
-    /*textareaType_de_cuisson*/
-    resize: none;
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-
-
-
-.Difficult_home {
-    /*Difficulté*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10%;
-}
-
-.labelDifficult_home {
-    /*Difficulté*/
-    padding-right: 15%;
-    text-shadow: #000;
-
-}
-
-.button_very_easy {
-    /*button_très_facile*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-.button_easy {
-    /*button_facile*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-.button_medium {
-    /*button_moyen*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-.button_hard {
-    /*button_difficile*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-
-
-
-
-.Cost_home {
-    /*Coût*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10%;
-}
-
-.labelCost_home {
-    /*labelCoût*/
-    padding-right: 20%;
-
-}
-
-.button_cheap {
-    /*button_bon_marché*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-.button_cost_medium {
-    /*.button_coût_moyen*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-.button_expensive {
-    /*button_assez_chère*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-
-
-
-
-.Peculiarity_home {
-    /*Particularité*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10%;
-}
-
-.vegetarian {
-    /*végétarien*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-.vegan {
-    /*végan*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-.gluten_free {
-    /*sans_gluten*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
-}
-
-.lactose_free {
-    /*sans_lactose*/
-    background-color: #b9b9b9;
-    color: #000;
-    border-radius: 10%;
-    padding: 1em;
-    border: 2px solid black;
-    outline: none;
 }
 
 /*________________________________________________________________________________________________________________________________________________________________________
@@ -928,6 +669,7 @@ footer {
     padding: 20px 0 20px 0;
     text-align: center;
     width: 100%;
+    margin-top: 150px;
 }
 
 
@@ -1057,5 +799,165 @@ button:hover {
     justify-content: center;
     border-radius: 10%;
     width: 20%;
-    height: 20%;
+    /*height: 20%;*/
 }
+
+#filter-button{
+     margin-top: 75px;
+     margin-left: auto;
+     margin-right: auto;   
+}
+
+
+.popup-close {
+    color: #fff;
+}
+
+
+
+
+/*________________________________________________________________________________________________________________________________________________________________________
+CSS TELEPHONE 
+*/
+
+
+    
+ 
+@media screen and (max-width: 991px) {
+    /*________________________________________________________________________________________________________________________________________________________________________
+    CSS TELEPHONE HOME 
+    */
+    #imagePrincipale {
+        width: 100vw;
+        background: url(https://www.cuisineaddict.com/blog/wp-content/uploads/2020/07/visuel-principal-1-1080x580.jpg) no-repeat;
+
+    }
+
+    .Picture_recipe_1
+     {
+        width: 230px;
+        height: 200px;
+
+    
+    }
+    .Picture_recipe_2 {
+        width: 230px;
+        height: 200px;
+
+    
+    }
+    .Picture_recipe_3 {
+        width: 230px;
+        height: 200px;
+
+    
+    }
+    body p {
+        font-size: 35px;
+    }
+    /*________________________________________________________________________________________________________________________________________________________________________
+    CSS TELEPHONE RECETTE        
+    */
+
+    .title_page_recette {
+        /*titre*/
+        font-size: 75px;
+        margin-bottom: 20px;
+    }
+
+    .Mid_page {
+        /*selection_milleu*/
+
+        flex-direction: column-reverse;
+
+    }
+    .Mid_page_lists {
+        /*les_listes*/
+        flex-direction: row;
+        margin: auto;
+        
+    }
+
+    .Mid_page_lists .Ingredients {
+        margin-right: 100px;
+    }
+
+    .king_pancake {
+        /*galette_des_rois*/
+        width: 500px;
+        height: 500px;
+        margin: auto;
+    
+    }
+    .Recipe_explanation {
+        /*explication*/
+        font-size: 25px;
+    }
+
+    .Comments {
+        margin: 50px;
+    }
+
+    .message_com1 {
+        font-size: 25px;
+    }
+
+    .date_publication {
+        font-size: 25px;
+        margin-left: 0;
+        margin-right: 0;
+
+    }
+
+    .date_publication strong {
+        width: 165px;
+    }
+
+    .NoteLabel {
+        margin-right: 50px;
+    }
+    /*________________________________________________________________________________________________________________________________________________________________________
+    CSS TELEPHONE PROFILE        
+    */
+
+    .Title_page_profil {
+        margin-top: 150px;
+    }
+    .Profile_picture {
+        height: 230px;
+    }
+    .Profile_card p {
+        font-size: 25px;
+    }
+    .Profile_card {
+        margin-bottom: 225px;
+        margin-top: 125px;
+    }
+    .Profile_card .Login, .Profile_card .Display, .Profile_card .First, .Profile_card .Last {
+        margin:20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .contact input, .contact textarea, .contact button {
+        width: 75vw;
+    }
+    /*________________________________________________________________________________________________________________________________________________________________________
+    CSS TELEPHONE SEARCH      
+    */
+
+    .Picture_result_recipe {
+        width: 40%;
+    }
+
+    footer a:link {
+        font-size: 30px;
+    }
+
+    
+
+    
+
+
+}
+
