@@ -5,7 +5,7 @@ class ControleurHome
 {
 
     public function defautAction()
-    {   
+    {
         $nums = array();
         while (count($nums) < 3) {
             $num = rand(1, 5);
@@ -105,7 +105,8 @@ class ControleurHome
         return $level;
     }
 
-public function searchAction() {
+    public function searchAction()
+    {
         $query = $_POST['query'];
         $searchResults = Search::searchByName($query);
         $array = [];
@@ -114,8 +115,41 @@ public function searchAction() {
             $recipe = [$result->getImageUrl(), $result->getName(), $difficulty, $result->getDuration(), $result->getId()];
             array_push($array, $recipe);
         }
-            Vue::montrer('home/SearchResults', $array);
-        }
-    
+        Vue::montrer('home/SearchResults', $array);
+    }
+    public function filterAction()
+    {
+        $difficulty = $_POST['difficulty'];
+        $name = $_POST['name'];
+        $duration = $_POST['duration'];
+        $filteredResults = [];
+        $allResults = Search::searchByName($name);
+        foreach ($allResults as $result) {
+            $resultDifficulty = $this->difficulty($result);
+            if ($resultDifficulty == $difficulty && $result->getName() == $name && $result->getDuration() >= $duration - 5 && $result->getDuration() <= $duration + 5) {
+                $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
+                array_push($filteredResults, $recipe);
+            }
+            else if($resultDifficulty == $difficulty && $result->getDuration() == $duration){
+                $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
+                array_push($filteredResults, $recipe);
 
+            }
+            else if( $result->getDuration() >= $duration - 5 && $result->getDuration() <= $duration + 5){
+                $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
+                array_push($filteredResults, $recipe);
+
+            }
+            else if($resultDifficulty == $difficulty ){
+                $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
+                array_push($filteredResults, $recipe);
+
+            }
+            else if (strpos(strtolower($result->getName()), strtolower($name)) !== false) {
+                $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
+                array_push($filteredResults, $recipe);
+            }
+        }
+        Vue::montrer('home/SearchResults', $filteredResults);
+    }
 }
