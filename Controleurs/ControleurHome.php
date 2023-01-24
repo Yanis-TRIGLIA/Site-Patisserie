@@ -126,7 +126,7 @@ class ControleurHome
         $allResults = Search::searchByName($name);
         foreach ($allResults as $result) {
             $resultDifficulty = $this->difficulty($result);
-            if ($resultDifficulty == $difficulty && $result->getName() == $name && $result->getDuration() == $duration) {
+            if ($resultDifficulty == $difficulty && $result->getName() == $name && $result->getDuration() >= $duration - 5 && $result->getDuration() <= $duration + 5) {
                 $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
                 array_push($filteredResults, $recipe);
             }
@@ -135,7 +135,7 @@ class ControleurHome
                 array_push($filteredResults, $recipe);
 
             }
-            else if( $duration == $result->getDuration() || $result->getDuration() == $duration +5|| $result->getDuration() == $duration +5){
+            else if( $result->getDuration() >= $duration - 5 && $result->getDuration() <= $duration + 5){
                 $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
                 array_push($filteredResults, $recipe);
 
@@ -145,10 +145,9 @@ class ControleurHome
                 array_push($filteredResults, $recipe);
 
             }
-            else if($result->getName() == $name){
+            else if (strpos(strtolower($result->getName()), strtolower($name)) !== false) {
                 $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
                 array_push($filteredResults, $recipe);
-
             }
         }
         Vue::montrer('home/SearchResults', $filteredResults);
