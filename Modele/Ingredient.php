@@ -5,35 +5,51 @@
  */
 final class Ingredient extends DbObject {
 
-    private static $sql = 'SELECT NAME, UNIT FROM INGREDIENT WHERE ID_INGREDIENT=?';
-    private static $sql2 = 'INSERT INTO INGREDIENT (NAME, UNIT) VALUES (?, ?)';
-    private static $req_prep;
-    private static $req_prep2;
+    private static $reqManager;
 
-    static function prepare() {
-        self::$req_prep = modele::$pdo->prepare(self::$sql);
-        self::$req_prep2 = modele::$pdo->prepare(self::$sql2);
+    static function init() {
+        self::$reqManager = new RequestsManager('INGREDIENT');
+        self::$reqManager->add('select_row', 'SELECT * FROM INGREDIENT WHERE ID_INGREDIENT=?');
+		self::$reqManager->add('insert_row', 'INSERT INTO INGREDIENT (NAME, UNIT) VALUES (?, ?)');
+		self::$reqManager->add('update_row', 'UPDATE INGREDIENT SET NAME=?, UNIT=? WHERE ID_INGREDIENT=?');
+		self::$reqManager->add('delete_row', 'DELETE FROM INGREDIENT WHERE ID_INGREDIENT=?');
     }
 
+    /**
+	 * Get all the existing ingredients
+	 * @return array An array containing all ingredients
+	 */
+	public static function getAll() {
+		$req_output = self::$reqManager->execute('*');
+		$all_ingredients = array();
+		while ($attr = $req_output->fetch())
+			array_push($all_ingredients, new Ingredient($attr['ID_INGREDIENT'], $attr['NAME'], $attr['UNIT']));
+		return $all_ingredients;
+	}
+
+	/**
+	 * Get the ingredient associated to the given id
+	 * @param int $id The given id
+	 * @return Ingredient The ingredient associated to the id
+	 */
     public static function getById($id) {
-        self::$req_prep->execute(array($id));
-        $row = self::$req_prep->fetch();
-        return new Ingredient($id, $row['NAME'], $row['UNIT']);
-    }
-
-    public static function createIngredient($name, $unit) {
-        self::$req_prep2->execute(array($name, $unit));
+        $attr = self::$reqManager->execute('select_row', array($id))->fetch();
+        return new Ingredient($attr['ID_INGREDIENT'], $attr['NAME'], $attr['UNIT']);
     }
 
     private $unit;
 
-    private function __construct(?int $id, $name, $unit){
+    public function __construct(?int $id, $name, $unit){
         parent::__construct($id, $name);
         $this->unit = $unit;
     }
 
-    public function getUnit(){
+    public function getUnit() {
         return $this->unit;
+    }
+
+    public function setUnit($unit) {
+        $this->unit = $unit;
     }
 
 	/**
@@ -42,6 +58,8 @@ final class Ingredient extends DbObject {
 	 * @return void
 	 */
 	public function insert() {
+        self::$reqManager->execute('insert_row', array($this->getName(), $this->getUnit()));
+		$this->setId(modele::$pdo->lastInsertId());
 	}
 	
 	/**
@@ -49,6 +67,7 @@ final class Ingredient extends DbObject {
 	 * @return void
 	 */
 	public function update() {
+        self::$reqManager->execute('update_row', array($this->getName(), $this->getUnit(), $this->getId()));
 	}
 	
 	/**
@@ -56,6 +75,9 @@ final class Ingredient extends DbObject {
 	 * @return void
 	 */
 	public function refresh() {
+        $row = self::$reqManager->execute('select_row', array($this->getId()))->fetch();
+		$this->setName($row['NAME']);
+        $this->setUnit($row['UNIT']);
 	}
 	
 	/**
@@ -63,6 +85,7 @@ final class Ingredient extends DbObject {
 	 * @return void
 	 */
 	public function delete() {
+        self::$reqManager->execute('delete_row', array($this->getId()));
 	}
 
     public function __toString() {
@@ -74,4 +97,4 @@ final class Ingredient extends DbObject {
 
 }
 
-Ingredient::prepare();
+Ingredient::init();
