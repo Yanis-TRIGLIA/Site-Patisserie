@@ -9,7 +9,6 @@ final class RequestsManager {
 
     public function __construct($table) {
         $this->add('*', 'SELECT * FROM ' . $table);
-        $this->add('by_id', 'SELECT * FROM ' . $table . ' WHERE ID_' . $table . '=?');
     }
 
     /**
