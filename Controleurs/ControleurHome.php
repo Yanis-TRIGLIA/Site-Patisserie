@@ -119,6 +119,7 @@ class ControleurHome
     }
     public function filterAction()
     {
+        ini_set('display_errors', 0);
         $difficulty = $_POST['difficulty'];
         $name = $_POST['name'];
         $duration = $_POST['duration'];
