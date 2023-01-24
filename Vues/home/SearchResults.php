@@ -36,7 +36,7 @@ echo '<br>';
 echo '<br>';
 echo '<br>';
 echo '<label for="duration">Durée :</label>';
-echo '<input type="text" name="duration" id="duration" placeholder="0 Minutes">';
+echo '<input type="number" name="duration" id="duration" value="0" >';
 echo '<br>';
 echo '<br>';
 echo '<button class="Filtrer" type="submit">Filtrer</button>';
