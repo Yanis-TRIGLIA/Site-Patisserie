@@ -9,24 +9,41 @@ final class Cost extends DbObject {
 
     static function init() {
 		self::$reqManager = new RequestsManager('COST');
-		self::$reqManager->add('insert', 'INSERT INTO COST (NAME) VALUES (?)');
-		self::$reqManager->add('update', 'UPDATE COST SET NAME=? WHERE ID_COST=?');
-        // self::$reqManager->add('delete', 'DELETE FROM COST WHERE ID_COST=?');
+        self::$reqManager->add('select_row', 'SELECT * FROM COST WHERE ID_COST=?');
+		self::$reqManager->add('insert_row', 'INSERT INTO COST (NAME) VALUES (?)');
+		self::$reqManager->add('update_row', 'UPDATE COST SET NAME=? WHERE ID_COST=?');
+		self::$reqManager->add('delete_row', 'DELETE FROM COST WHERE ID_COST=?');
     }
 
+	/**
+	 * Get all the existing costs
+	 * @return array An array containing all costs
+	 */
+	public static function getAll() {
+		$req_output = self::$reqManager->execute('*');
+		$all_costs = array();
+		while ($attr = $req_output->fetch())
+			array_push($all_costs, new Cost($attr['ID_COST'], $attr['NAME']));
+		return $all_costs;
+	}
+
+	/**
+	 * Get the cost associated to the given id
+	 * @param int $id The given id
+	 * @return Cost The cost associated to the id
+	 */
     public static function getById($id) {
-        $row = self::$reqManager->execute('by_id', array($id))->fetch();
-        return new Cost($row['ID_COST'], $row['NAME']);
+        $attr = self::$reqManager->execute('select_row', array($id))->fetch();
+        return new Cost($attr['ID_COST'], $attr['NAME']);
     }
 
 	/**
 	 * Insert **this** Cost in the database
 	 * It also set **this** id to the given auto-incremented id in database
      * Be careful ! It doesn't check if object is already in database
-	 * @return void
 	 */
 	public function insert() {
-		self::$reqManager->execute('insert', array($this->getName()));
+		self::$reqManager->execute('insert_row', array($this->getName()));
 		$this->setId(modele::$pdo->lastInsertId());
 	}
 	
@@ -35,7 +52,7 @@ final class Cost extends DbObject {
 	 * @return void
 	 */
 	public function update() {
-		self::$reqManager->execute('update', array($this->getName(), $this->getId()));
+		self::$reqManager->execute('update_row', array($this->getName(), $this->getId()));
 	}
 	
 	/**
@@ -43,7 +60,7 @@ final class Cost extends DbObject {
 	 * @return void
 	 */
 	public function refresh() {
-		$row = self::$reqManager->execute('by_id', array($this->getId()))->fetch();
+		$row = self::$reqManager->execute('select_row', array($this->getId()))->fetch();
 		$this->setName($row['NAME']);
 	}
 	
@@ -52,7 +69,7 @@ final class Cost extends DbObject {
 	 * @return void
 	 */
 	public function delete() {
-		// self::$reqManager->execute('delete', array($this->getId()));
+		self::$reqManager->execute('delete_row', array($this->getId()));
 	}
 
     public function __toString() {
