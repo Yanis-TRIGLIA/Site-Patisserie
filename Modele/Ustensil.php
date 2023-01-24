@@ -7,11 +7,6 @@ final class Ustensil extends DbObject {
 
 	private static $reqManager;
 
-    private static $sql = 'SELECT NAME FROM USTENSIL WHERE ID_USTENSIL=?';
-    private static $sql2 = 'INSERT INTO USTENSIL (NAME) VALUES (?)';
-    private static $req_prep;
-    private static $req_prep2;
-
     static function init() {
         self::$reqManager = new RequestsManager('USTENSIL');
         self::$reqManager->add('select_row', 'SELECT * FROM USTENSIL WHERE ID_USTENSIL=?');
