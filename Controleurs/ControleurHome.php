@@ -135,7 +135,17 @@ class ControleurHome
                 array_push($filteredResults, $recipe);
 
             }
+            else if( $duration == $result->getDuration() || $result->getDuration() == $duration +5|| $result->getDuration() == $duration +5){
+                $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
+                array_push($filteredResults, $recipe);
+
+            }
             else if($resultDifficulty == $difficulty ){
+                $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
+                array_push($filteredResults, $recipe);
+
+            }
+            else if($result->getName() == $name){
                 $recipe = [$result->getImageUrl(), $result->getName(), $resultDifficulty, $result->getDuration(), $result->getId()];
                 array_push($filteredResults, $recipe);
 
