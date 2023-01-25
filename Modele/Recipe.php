@@ -5,55 +5,65 @@
  */
 final class Recipe extends DbObject {
 
+    private static $reqManager;
 
-    private static $sql1 = 'SELECT NAME,DESCRIPTION,DURATION,ID_AUTHOR,ID_DIFFICULTY,ID_COST, IMAGE_URL FROM RECIPE WHERE ID_RECIPE=?';
-    private static $sql2 = 'SELECT ID_USTENSIL FROM RECIPE_USTENSIL WHERE ID_RECIPE=?';
-    private static $sql3 = 'SELECT ID_INGREDIENT, QUANTITY FROM RECIPE_INGREDIENT WHERE ID_RECIPE=?';
-    private static $sql4 = 'SELECT ID_APPRECIATION FROM APPRECIATION WHERE ID_RECIPE=?';
-    private static $sql5 = 'INSERT INTO RECIPE (NAME, DESCRIPTION, DURATION, ID_AUTHOR, ID_DIFFICULTY, ID_COST, IMAGE_URL) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    private static $sql6 = 'INSERT INTO RECIPE_USTENSIL (ID_RECIPE, ID_USTENSIL) VALUES (?, ?)';
-    private static $sql7 = 'INSERT INTO RECIPE_INGREDIENT (ID_RECIPE, ID_INGREDIENT) VALUES (?, ?)';
+    static function init() {
+        self::$reqManager = new RequestsManager('RECIPE');
+        self::$reqManager->add('select_row', 'SELECT * FROM RECIPE WHERE ID_RECIPE=?');
+        self::$reqManager->add('select_ustensils', 'SELECT * FROM RECIPE_USTENSIL WHERE ID_RECIPE=?');
+        self::$reqManager->add('select_ingredients', 'SELECT * FROM RECIPE_INGREDIENT WHERE ID_RECIPE=?');
 
-    private static $req_prep1;
-    private static $req_prep2;
-    private static $req_prep3;
-    private static $req_prep4;
-    private static $req_prep5;
-    private static $req_prep6;
-    private static $req_prep7;
+		self::$reqManager->add('insert_row', 'INSERT INTO RECIPE (NAME, DESCRIPTION, DURATION, ID_AUTHOR, ID_DIFFICULTY, ID_COST, IMAGE_URL) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        self::$reqManager->add('insert_ustensil', 'INSERT INTO RECIPE_USTENSIL (ID_RECIPE, ID_USTENSIL) VALUES (?, ?)');
+        self::$reqManager->add('insert_ingredient', 'INSERT INTO RECIPE_INGREDIENT (ID_RECIPE, ID_INGREDIENT, QUANTITY) VALUES (?, ?, ?)');
 
-    static function prepare() {
-        self::$req_prep1 = modele::$pdo->prepare(self::$sql1);
-        self::$req_prep2 = modele::$pdo->prepare(self::$sql2);
-        self::$req_prep3 = modele::$pdo->prepare(self::$sql3);
-        self::$req_prep4 = modele::$pdo->prepare(self::$sql4);
-        self::$req_prep5 = modele::$pdo->prepare(self::$sql5);
-        self::$req_prep6 = modele::$pdo->prepare(self::$sql6);
-        self::$req_prep7 = modele::$pdo->prepare(self::$sql7);
+		self::$reqManager->add('update_row', 'UPDATE RECIPE SET NAME=?, DESCRIPTION=?, DURATION=?, ID_AUTHOR=?, ID_DIFFICULTY=?, ID_COST=?, IMAGE_URL=? WHERE ID_RECIPE=?');
+
+		self::$reqManager->add('delete_row', 'DELETE FROM RECIPE WHERE ID_RECIPE=?');
+        self::$reqManager->add('delete_ustensil', 'DELETE FROM RECIPE_USTENSIL WHERE ID_RECIPE=? AND ID_USTENSIL=?');
+        self::$reqManager->add('delete_ustensils', 'DELETE FROM RECIPE_USTENSIL WHERE ID_RECIPE=?');
+        self::$reqManager->add('delete_ingredient', 'DELETE FROM RECIPE_INGREDIENT WHERE ID_RECIPE=? AND ID_INGREDIENT=?');
+        self::$reqManager->add('delete_ingredients', 'DELETE FROM RECIPE_INGREDIENT WHERE ID_RECIPE=?');
+        self::$reqManager->add('delete_appreciations', 'DELETE FROM APPRECIATION WHERE ID_RECIPE=?');
     }
     
+    /**
+	 * Get all the existing recipes
+	 * @return array An array containing all recipes
+	 */
+	public static function getAll() {
+		$req_output = self::$reqManager->execute('*');
+		$all_recipes = array();
+        while ($attr = $req_output->fetch()) {
+            $ustensils = array();
+            $ustensilsAttr = self::$reqManager->execute('select_ustensils', array($attr['ID_RECIPE']));
+            while ($ustensilAttr = $ustensilsAttr->fetch())
+                array_push($ustensils, Ustensil::getById($ustensilAttr['ID_USTENSIL']));
+            $ingredients = array();
+            $ingredientsAttr = self::$reqManager->execute('select_ingredients', array($attr['ID_RECIPE']));
+            while ($ingredientAttr = $ingredientsAttr->fetch())
+                array_push($ingredients, new IngredientRecipe(Ingredient::getById($ingredientAttr['ID_INGREDIENT']), $ingredientAttr['QUANTITY']));
+            array_push($all_recipes, new Recipe($attr['ID_RECIPE'], $attr['NAME'], explode('\n', $attr['DESCRIPTION']), $attr['DURATION'], User::getById($attr['ID_AUTHOR']), Difficulty::getById($attr['ID_DIFFICULTY']), Cost::getById($attr['ID_COST']), $ustensils, $ingredients, Appreciation::getByRecipeId($attr['ID_RECIPE']), $attr['IMAGE_URL']));
+        }
+		return $all_recipes;
+	}
 
+	/**
+	 * Get the recipe associated to the given id
+	 * @param int $id The given id
+	 * @return Recipe The recipe associated to the id
+	 */
     public static function getById($id) {
-        self::$req_prep1->execute(array($id));
-        $row = self::$req_prep1->fetch();
-        self::$req_prep2->execute(array($id));
         $ustensils = array();
-        while ($idUstensil = self::$req_prep2->fetch())
-            array_push($ustensils, Ustensil::getById($idUstensil['ID_USTENSIL']));
-        self::$req_prep3->execute(array($id));
+        $ustensilsAttr = self::$reqManager->execute('select_ustensils', array($id));
+        while ($ustensilAttr = $ustensilsAttr->fetch())
+            array_push($ustensils, Ustensil::getById($ustensilAttr['ID_USTENSIL']));
         $ingredients = array();
-        while ($idIngredient = self::$req_prep3->fetch())
-            array_push($ingredients, Ingredient::getById($idIngredient['ID_INGREDIENT']));
-        self::$req_prep4->execute(array($id));
-        $appreciations = array();
-        while ($idAppreciation = self::$req_prep4->fetch())
-            array_push($appreciations, Appreciation::getById($idAppreciation['ID_APPRECIATION']));
-        return new Recipe($id, $row['NAME'],explode('\n', $row['DESCRIPTION']), $row['DURATION'], User::getById($row['ID_AUTHOR']), Difficulty::getById($row['ID_DIFFICULTY']), Cost::getById($row['ID_COST']), $ustensils, $ingredients, $appreciations, $row['IMAGE_URL']);
-    }
-
-    public static function createRecipe($name, $description, $duration, $author, $difficulty, $cost, $ustensils, $ingredients, $imageUrl) {
-        self::$req_prep5->execute(array($name, $description, $duration, $author, $difficulty->getId(), $cost->getId(), $imageUrl));
-        // TODO put ustensils and ingredients (after reformated all objects stucture)
+        $ingredientsAttr = self::$reqManager->execute('select_ingredients', array($id));
+        while ($ingredientAttr = $ingredientsAttr->fetch())
+            array_push($ingredients, new IngredientRecipe(Ingredient::getById($ingredientAttr['ID_INGREDIENT']), $ingredientAttr['QUANTITY']));
+        $attr = self::$reqManager->execute('select_row', array($id))->fetch();
+        return new Recipe($attr['ID_RECIPE'], $attr['NAME'], explode('\n', $attr['DESCRIPTION']), $attr['DURATION'], User::getById($attr['ID_AUTHOR']), Difficulty::getById($attr['ID_DIFFICULTY']), Cost::getById($attr['ID_COST']), $ustensils, $ingredients, Appreciation::getByRecipeId($attr['ID_RECIPE']), $attr['IMAGE_URL']);
     }
 
     private $description;
@@ -66,13 +76,13 @@ final class Recipe extends DbObject {
     private $appreciations;
     private $imageUrl;
 
-    private function __construct(
+    public function __construct(
         ?int $id, $name, $description, $duration, $author, $difficulty, $cost,
         $ustensils, $ingredients, $appreciations, $imageUrl
     ) {
         parent::__construct($id, $name);
-        $this-> description= $description;
-        $this-> duration= $duration;
+        $this->description= $description;
+        $this->duration= $duration;
         $this->author = $author;
         $this->difficulty = $difficulty;
         $this->cost = $cost;
@@ -82,40 +92,81 @@ final class Recipe extends DbObject {
         $this->imageUrl = $imageUrl;
     }
 
-    public function getDescription(){
+    public function getDescription() {
         return $this->description;
     }
 
-    public function getDuration(){
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+
+    public function getDuration() {
         return $this->duration;
     }
 
-    public function getAuthor(){
-        return $this->author;              
+    public function setDuration($duration) {
+        $this->duration = $duration;
     }
 
-    public function getDifficulty(){
-        return $this->difficulty;              
+    public function getAuthor() {
+        return $this->author;
     }
 
-    public function getCost(){
-        return $this->cost;              
+    public function setAuthor($author) {
+        $this->author = $author;
     }
 
-    public function getUstensils(){
-        return $this->ustensils;             
+    public function getDifficulty() {
+        return $this->difficulty;
     }
 
-    public function getIngredients(){
-        return $this->ingredients;             
+    public function setDifficulty($difficulty) {
+        $this->difficulty = $difficulty;
     }
 
-    public function getAppreciations(){
+    public function getCost() {
+        return $this->cost;
+    }
+
+    public function setCost($cost) {
+        $this->cost = $cost;
+    }
+
+    public function getUstensils() {
+        return $this->ustensils;
+    }
+
+    public function setUstensils($ustensils) {
+        $this->ustensils = $ustensils;
+    }
+
+    public function getIngredients() {
+        return $this->ingredients;
+    }
+
+    public function setIngredients($ingredients) {
+        $this->ingredients = $ingredients;
+    }
+
+    public function getAppreciations() {
         return $this->appreciations;
+    }
+
+    public function setAppreciations($appreciations) {
+        $this->appreciations = $appreciations;
+    }
+
+    public function addAppreciation($appreciation) {
+        $appreciation->setIdRecipe($this->getId());
+        array_push($this->appreciations, $appreciation);
     }
 
     public function getImageUrl() {
         return $this->imageUrl;
+    }
+
+    public function setImageUrl($imageUrl) {
+        $this->imageUrl = $imageUrl;
     }
 
     /**
@@ -124,6 +175,16 @@ final class Recipe extends DbObject {
 	 * @return void
 	 */
 	public function insert() {
+		self::$reqManager->execute('insert_row', array($this->getName(), implode('\n', $this->getDescription()), $this->getDuration(), $this->getAuthor()->getId(), $this->getDifficulty()->getId(), $this->getCost()->getId(), $this->getImageUrl()));
+		$this->setId(modele::$pdo->lastInsertId());
+        foreach ($this->getUstensils() as $ustensil)
+            self::$reqManager->execute('insert_ustensil', array($this->getId(), $ustensil->getId()));
+        foreach ($this->getIngredients() as $ingredient)
+            self::$reqManager->execute('insert_ingredient', array($this->getId(), $ingredient->getIngredient()->getId(), $ingredient->getQuantity()));
+        foreach ($this->getAppreciations() as $appreciation) {
+            $appreciation->setIdRecipe($this->getId());
+            $appreciation->insert();
+        }
 	}
 	
 	/**
@@ -131,6 +192,32 @@ final class Recipe extends DbObject {
 	 * @return void
 	 */
 	public function update() {
+        self::$reqManager->execute('update_row', array($this->getName(), implode('\n', $this->getDescription()), $this->getDuration(), $this->getAuthor()->getId(), $this->getDifficulty()->getId(), $this->getCost()->getId(), $this->getImageUrl(), $this->getId()));
+        $oldUstencilsId = $this->getDbUstensilsId();
+        // adding new ustensils
+        foreach ($this->getUstensils() as $newUstensil)
+        if (!in_array($newUstensil->getId(), $oldUstencilsId))
+                self::$reqManager->execute('insert_ustensil', array($this->getId(), $newUstensil->getId()));
+                // removing old ustensils
+        foreach ($oldUstencilsId as $oldUstensilId) {
+            // manually looking for matching id
+            $found = false;
+            foreach ($this->getUstensils() as $newUstensil)
+                if ($oldUstensilId == $newUstensil->getId()) {
+                    $found = true;
+                    break;
+                }
+                if (!$found)
+                self::$reqManager->execute('delete_ustensil', array($this->getId(), $oldUstensilId));
+        }
+
+        self::$reqManager->execute('delete_ingredients', array($this->getId()));
+        foreach ($this->getIngredients() as $ingredient)
+            self::$reqManager->execute('insert_ingredient', array($this->getId(), $ingredient->getIngredient()->getId(), $ingredient->getQuantity()));
+
+        self::$reqManager->execute('delete_appreciations', array($this->getId()));
+        foreach ($this->getAppreciations() as $appreciation)
+            $appreciation->insert();
 	}
 	
 	/**
@@ -138,6 +225,28 @@ final class Recipe extends DbObject {
 	 * @return void
 	 */
 	public function refresh() {
+        $attr = self::$reqManager->execute('select_row', array($this->getId()))->fetch();
+        $this->setName($attr['NAME']);
+        $this->setDescription(explode('\n', $attr['DESCRIPTION']));
+        $this->setDuration($attr['DURATION']);
+        $this->setAuthor(User::getById($attr['ID_AUTHOR']));
+        $this->setDifficulty(Difficulty::getById($attr['ID_DIFFICULTY']));
+        $this->setCost(Cost::getById($attr['ID_COST']));
+
+        $ustensils = array();
+        $ustensilsAttr = self::$reqManager->execute('select_ustensils', array($this->getId()));
+        while ($ustensilAttr = $ustensilsAttr->fetch())
+            array_push($ustensils, Ustensil::getById($ustensilAttr['ID_USTENSIL']));
+        $this->setUstensils($ustensils);
+
+        $ingredients = array();
+        $ingredientsAttr = self::$reqManager->execute('select_ingredients', array($this->getId()));
+        while ($ingredientAttr = $ingredientsAttr->fetch())
+            array_push($ingredients, new IngredientRecipe(Ingredient::getById($ingredientAttr['ID_INGREDIENT']), $ingredientAttr['QUANTITY']));
+        $this->setIngredients($ingredients);
+
+        $this->setAppreciations(Appreciation::getByRecipeId($attr['ID_RECIPE']));
+        $this->setImageUrl($attr['IMAGE_URL']);
 	}
 	
 	/**
@@ -145,23 +254,43 @@ final class Recipe extends DbObject {
 	 * @return void
 	 */
 	public function delete() {
+        self::$reqManager->execute('delete_ustensils', array($this->getId()));
+        self::$reqManager->execute('delete_ingredients', array($this->getId()));
+        self::$reqManager->execute('delete_appreciations', array($this->getId()));
+        self::$reqManager->execute('delete_row', array($this->getId()));
 	}
 
     public function __toString() {
         return __CLASS__ . '{' .
             'parent:' . parent::__toString() .
-            ', description=' . implode($this->getDescription()) .
-            ', duration=' . $this->getDuration() .
+            ',<br>description=<br>' . implode(',<br>', $this->getDescription()) .
+            '<br>duration=' . $this->getDuration() .
             ', author=' . $this->getAuthor() .
             ', difficulty=' . $this->getDifficulty() .
             ', cost=' . $this->getCost() .
-            ', ustensils=' . implode($this->getUstensils()) .
-            ', ingredient=' .implode($this->getIngredients()) .
-            ', appreciations=' . implode($this->getAppreciations()) .
-            ', imageUrl=' . $this->getImageUrl() .
+            ',<br>ustensils=<br>' . implode(',<br>', $this->getUstensils()) .
+            '<br>ingredient=<br>' . implode(',<br>', $this->getIngredients()) .
+            '<br>appreciations=<br>' . implode(',<br>', $this->getAppreciations()) .
+            '<br>imageUrl=' . $this->getImageUrl() .
             '}';
+    }
+
+    private function getDbUstensilsId() {
+        $ustensilsId = array();
+        $ustensilsAttr = self::$reqManager->execute('select_ustensils', array($this->getId()));
+        while ($ustensilAttr = $ustensilsAttr->fetch())
+            array_push($ustensilsId, $ustensilAttr['ID_USTENSIL']);
+        return $ustensilsId;
+    }
+
+    private function getDbIngredientsId() {
+        $ingredientsId = array();
+        $ingredientsAttr = self::$reqManager->execute('select_ingredients', array($this->getId()));
+        while ($ingredientAttr = $ingredientsAttr->fetch())
+            array_push($ingredientsId, $ingredientAttr['ID_INGREDIENT']);
+        return $ingredientsId;
     }
 
 }
 
-Recipe::prepare();
+Recipe::init();
