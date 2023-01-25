@@ -1,47 +1,58 @@
 <?php
-echo '<link rel="stylesheet" href="/Css/stylesite.css">';
-echo '<div class="Navigation_bar">';
-echo '<form method="post" action="/home/search" class="Navigation_bar">';
-echo '<ul>';
-echo '<li class><a class="backgroundimage" href="https://tpphp1.alwaysdata.net/home">_ </a></li>';
-echo '<li style="float:middle">';
-echo '<input class="Search" type="text" name="query" placeholder="Recherche...">';
-echo '</li>';
-echo '<li style="float:middle">';
-echo '<button class="Searchbutton" type="submit"></button>';
-echo '</li>';
-echo '<li style="float:right"><a class="login" href="#login">se connecter</a></li>';
-echo '<li style="float:right"><a class="sigin" href="#signin">s\'enregistrer</a></li>';
-echo '</ul>';
-echo '</form>';
-echo '</div>';
-echo '<br>';
-echo '<br>';
-echo '<button id="filter-button" onclick="showFilters()">Filtres</button>';
-echo '<div id="filter-options" style="display: none;">';
-echo '<form method="post" action="/home/filter">';
-echo '<label for="name">Nom :</label>';
-echo '<input type="text" name="name" placeholder="Rechercher une recette">';
-echo '<br>';
-echo '<br>';
-echo '<br>';
-echo '<label for="difficulty">Difficulté :</label>';
-echo '<select name="difficulty" id="difficulty">';
-echo '<option value=Choix>Veuillez Choisir Votre Difficulter</option>';
-echo '<option value=Facile>Facile</option>';
-echo '<option value=Moyen>Moyen</option>';
-echo '<option value=Difficile>Difficile</option>';
-echo '</select>';
-echo '<br>';
-echo '<br>';
-echo '<br>';
-echo '<label for="duration">Durée :</label>';
-echo '<input type="number" name="duration" id="duration" value="0" >';
-echo '<br>';
-echo '<br>';
-echo '<button class="Filtrer" type="submit">Filtrer</button>';
-echo '</form>';
-echo '</div>';
+echo 
+'<div class="Navigation_bar">
+<link rel="stylesheet" href="/Css/stylesite.css">
+<form method="post" action="/home/search" class="Navigation_bar">
+<ul>
+<li class><a class="backgroundimage" href="https://tpphp1.alwaysdata.net">_ </a></li>
+<li style="float:middle">
+<input class="Search" type="text" name="query" placeholder="Recherche...">
+</li>
+<li style="float:middle">
+<button class="Searchbutton" type="submit"></button>
+</li>
+<li style="float:right">
+<a href="/home/profile" class="link_profile" style="padding-top: 8px">
+<img class="profil_button" src="https://cdn-icons-png.flaticon.com/512/25/25634.png" width="50" height="50" ">
+</a>
+</li>
+
+<li style="float:right">
+<a href="/home" class="link_profile" style="padding-top: 8px">
+<img class="logout_button" src="https://cdn-icons-png.flaticon.com/512/126/126467.png" width="50" height="50" ">
+</a>
+</li>
+
+</ul>
+</form>
+</div>
+<br>
+<br>
+<button id="filter-button" onclick="showFilters()">Filtres</button>
+<div id="filter-options" style="display: none;">
+<form method="post" action="/home/filter">
+<label for="name">Nom :</label>
+<input type="text" name="name" placeholder="Rechercher une recette">
+<br>
+<br>
+<br>
+<label for="difficulty">Difficulté :</label>
+<select name="difficulty" id="difficulty">
+<option value=Choix>Veuillez Choisir Votre Difficulter</option>
+<option value=Facile>Facile</option>
+<option value=Moyen>Moyen</option>
+<option value=Difficile>Difficile</option>
+</select>
+<br>
+<br>
+<br>
+<label for="duration">Durée :</label>
+<input type="number" name="duration" id="duration" value="0" >
+<br>
+<br>
+<button class="Filtrer" type="submit">Filtrer</button>
+</form>
+ </div>';
  ?>
  <script>
    function showFilters() {
