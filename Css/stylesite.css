@@ -68,7 +68,9 @@ Navigation bar for all pages
 .Navigation_bar li:last-child {
     border-right: none;
 }
-
+.link_profile{
+    height: 30px;
+}
 .Navigation_bar li a {
     display: block;
     color: white;
@@ -76,6 +78,8 @@ Navigation bar for all pages
     padding: 14px 16px;
     text-decoration: none;
 }
+
+
 
 .sigin {
     background-color: #444;
@@ -122,6 +126,14 @@ Navigation bar for all pages
 
 .Navigation_bar ul.topnav li.right {
     float: right;
+}
+.logout_button{
+    margin:0;
+
+}
+.profil_button{
+    margin:0;
+
 }
 
 @media screen and (max-width: 600px) {
@@ -812,6 +824,7 @@ button:hover {
 .popup-close {
     color: #fff;
 }
+
 
 
 
