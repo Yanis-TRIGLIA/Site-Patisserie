@@ -15,6 +15,7 @@ final class Appreciation extends DbObject {
     static function init() {
         self::$reqManager = new RequestsManager('APPRECIATION');
         self::$reqManager->add('select_row', 'SELECT * FROM APPRECIATION WHERE ID_APPRECIATION=?');
+        self::$reqManager->add('select_by_recipe', 'SELECT * FROM APPRECIATION WHERE ID_RECIPE=?');
 		self::$reqManager->add('insert_row', 'INSERT INTO APPRECIATION (ID_RECIPE, ID_AUTHOR, NAME, PUBLICATION_DATE, GRADE, COMMENTARY) VALUES (?, ?, ?, ?, ?, ?)');
 		self::$reqManager->add('update_row', 'UPDATE APPRECIATION SET ID_RECIPE=?, ID_AUTHOR=?, NAME=?, PUBLICATION_DATE=?, GRADE=?, COMMENTARY=? WHERE ID_APPRECIATION=?');
 		self::$reqManager->add('delete_row', 'DELETE FROM APPRECIATION WHERE ID_APPRECIATION=?');
