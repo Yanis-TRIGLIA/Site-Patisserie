@@ -10,10 +10,10 @@ abstract class DbObject {
 
     /**
      * Constructor
-     * @param int $id
+     * @param ?int $id
      * @param string $name
      */
-    public function __construct($id, $name) {
+    public function __construct(?int $id, $name) {
         $this->id = $id;
         $this->name = $name;
     }
@@ -27,6 +27,15 @@ abstract class DbObject {
     }
 
     /**
+     * Id setter
+     * @param int $id
+     * @return void
+     */
+    public final function setId($id) {
+        $this->id = $id;
+    }
+
+    /**
      * Name getter
      * @return string
      */
@@ -34,11 +43,21 @@ abstract class DbObject {
         return $this->name;
     }
 
+    /**
+     * Name setter
+     * @param string $name
+     * @return void
+     */
+    public final function setName($name) {
+        $this->name = $name;
+    }
+
     // Database interactions
 
     /**
      * Insert **this** Object in the database
      * It also set **this** id to the given auto-incremented id in database
+     * Be careful ! It doesn't check if object is already in database
      * @return void
      */
     public abstract function insert();
