@@ -300,6 +300,7 @@ form {
     padding: 1em;
     border: 2px solid black;
     outline: none;
+    margin-right: 60px;
 }
 
 /*________________________________________________________________________________________________________________________________________________________________________
@@ -825,6 +826,96 @@ button:hover {
     color: #fff;
 }
 
+/*________________________________________________________________________________________________________________________________________________________________________
+   page  login/registre
+        */
+
+
+.register_form, .login_form {
+    margin:50px 20vw 0 20vw;
+    background: #bd8d2e;
+    padding: 0.5rem 3rem 6rem 3rem;
+    height: 320px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    text-align: center;
+  }
+
+  .register_form p, .login_form p {
+    color: white;
+    font-weight: 500;
+    opacity: .7;
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  }
+    
+  a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 12px;
+  }
+  
+  a:hover {
+    text-shadow: 2px 2px 6px #00000040;
+  }
+  
+  a:active {
+    text-shadow: none;
+  }
+  .register_form input, .login_form input {
+    /* pas de bordure */
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+    width: 200px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    transition: all .3s;
+    background-color: rgba(0, 0, 0, 0.418);
+  }
+
+.register_form input:hover, .login_form input:hover,
+input[type="email"]:focus,
+input[type="password"]:focus{
+  background: rgba(30, 0, 201, 0.568);
+  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+}
+    
+input[type="button"] {
+  margin-top: 10px;
+  width: 150px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+::placeholder {
+    color: #000;
+}
+.register_form input::placeholder, .login_form input::placeholder {
+    color: #fff;
+}
+.login_form button{
+    margin-top: 35px;
+}
+
+
+/*button{
+ color:#ddd;
+}*/
+
 
 
 
@@ -927,7 +1018,7 @@ CSS TELEPHONE
     }
 
     .NoteLabel {
-        margin-right: 50px;
+        margin-right: 60px;
     }
     /*________________________________________________________________________________________________________________________________________________________________________
     CSS TELEPHONE PROFILE        
@@ -966,6 +1057,36 @@ CSS TELEPHONE
     footer a:link {
         font-size: 30px;
     }
+
+
+    /*________________________________________________________________________________________________________________________________________________________________________
+    CSS TELEPHONE LOGIN/REGISTER    
+    */
+
+
+
+
+
+    .register_form, .login_form {
+        margin: 22vh 10vw 13vh 10vw;
+    }
+    .register_form{
+        padding-bottom: 200px;
+        margin: 20vh 10vw 11vh 10vw;
+    }
+
+    .register_form input, .login_form input{
+        padding: 1.5rem 5rem;
+
+    }
+    .register_form button, .login_form button{
+        margin-top: 15px;
+    }
+
+    .register_form p, .login_form p{
+        font-size: 2.5rem;
+    }
+    
 
     
 
