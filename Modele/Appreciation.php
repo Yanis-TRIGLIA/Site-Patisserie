@@ -42,6 +42,19 @@ final class Appreciation extends DbObject {
         return new Appreciation($attr['ID_APPRECIATION'], $attr['ID_RECIPE'], $attr['ID_AUTHOR'], $attr['NAME'], $attr['PUBLICATION_DATE'], $attr['GRADE'], $attr['COMMENTARY']);
     }
 
+    /**
+     * Get all the appreciations matching idRecipe with the given one
+     * @param mixed $idRecipe The given recipe id
+     * @return array An array containing all matching appreciations
+     */
+    public static function getByRecipeId($idRecipe) {
+        $req_output = self::$reqManager->execute('select_by_recipe', array($idRecipe));
+		$appreciations = array();
+        while ($appreciation = $req_output->fetch())
+            array_push($appreciations, new Appreciation($appreciation['ID_APPRECIATION'], $appreciation['ID_RECIPE'], $appreciation['ID_AUTHOR'], $appreciation['NAME'], $appreciation['PUBLICATION_DATE'], $appreciation['GRADE'], $appreciation['COMMENTARY']));
+		return $appreciations;
+    }
+
     private $idRecipe;
     private $idAuthor;
     private $publicationDate;
