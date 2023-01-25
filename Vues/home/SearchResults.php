@@ -11,15 +11,14 @@ echo
 <li style="float:middle">
 <button class="Searchbutton" type="submit"></button>
 </li>
-
-<li>
-<a href="/home/profile">
+<li style="float:right">
+<a href="/home/profile" class="link_profile" style="padding-top: 8px">
 <img class="profil_button" src="https://cdn-icons-png.flaticon.com/512/25/25634.png" width="50" height="50" ">
 </a>
 </li>
 
-<li>;
-<a href="/home">
+<li style="float:right">
+<a href="/home" class="link_profile" style="padding-top: 8px">
 <img class="logout_button" src="https://cdn-icons-png.flaticon.com/512/126/126467.png" width="50" height="50" ">
 </a>
 </li>
