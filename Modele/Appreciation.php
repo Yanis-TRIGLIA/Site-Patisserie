@@ -7,11 +7,6 @@ final class Appreciation extends DbObject {
 
     private static $reqManager;
 
-    private static $sql1 = 'SELECT ID_RECIPE,ID_AUTHOR,NAME,DATE_FORMAT(PUBLICATION_DATE , "%d %b %Y") AS PUBLICATION_DATE ,GRADE,COMMENTARY FROM APPRECIATION WHERE ID_APPRECIATION=?';
-    private static $sql2 = 'INSERT INTO APPRECIATION (ID_RECIPE, ID_AUTHOR, NAME, PUBLICATION_DATE, GRADE, COMMENTARY) VALUES (?, ?, ?, ?, ?)';
-    private static $req_prep1;
-    private static $req_prep2;
-
     static function init() {
         self::$reqManager = new RequestsManager('APPRECIATION');
         self::$reqManager->add('select_row', 'SELECT * FROM APPRECIATION WHERE ID_APPRECIATION=?');
@@ -29,7 +24,7 @@ final class Appreciation extends DbObject {
 		$req_output = self::$reqManager->execute('*');
 		$all_appreciations = array();
 		while ($attr = $req_output->fetch())
-			array_push($all_appreciations, new Appreciation($attr['ID_APPRECIATION'], $attr['ID_RECIPE'], $attr['ID_AUTHOR'], $attr['NAME'], $attr['PUBLICATION_DATE'], $attr['GRADE'], $attr['COMMENTARY']));
+			array_push($all_appreciations, new Appreciation($attr['ID_APPRECIATION'], $attr['ID_RECIPE'], User::getById($attr['ID_AUTHOR']), $attr['NAME'], $attr['PUBLICATION_DATE'], $attr['GRADE'], $attr['COMMENTARY']));
 		return $all_appreciations;
 	}
 
@@ -40,7 +35,7 @@ final class Appreciation extends DbObject {
 	 */
     public static function getById($id) {
         $attr = self::$reqManager->execute('select_row', array($id))->fetch();
-        return new Appreciation($attr['ID_APPRECIATION'], $attr['ID_RECIPE'], $attr['ID_AUTHOR'], $attr['NAME'], $attr['PUBLICATION_DATE'], $attr['GRADE'], $attr['COMMENTARY']);
+        return new Appreciation($attr['ID_APPRECIATION'], $attr['ID_RECIPE'], User::getById($attr['ID_AUTHOR']), $attr['NAME'], $attr['PUBLICATION_DATE'], $attr['GRADE'], $attr['COMMENTARY']);
     }
 
     /**
@@ -52,20 +47,20 @@ final class Appreciation extends DbObject {
         $req_output = self::$reqManager->execute('select_by_recipe', array($idRecipe));
 		$appreciations = array();
         while ($appreciation = $req_output->fetch())
-            array_push($appreciations, new Appreciation($appreciation['ID_APPRECIATION'], $appreciation['ID_RECIPE'], $appreciation['ID_AUTHOR'], $appreciation['NAME'], $appreciation['PUBLICATION_DATE'], $appreciation['GRADE'], $appreciation['COMMENTARY']));
+            array_push($appreciations, new Appreciation($appreciation['ID_APPRECIATION'], $appreciation['ID_RECIPE'], User::getById($appreciation['ID_AUTHOR']), $appreciation['NAME'], $appreciation['PUBLICATION_DATE'], $appreciation['GRADE'], $appreciation['COMMENTARY']));
 		return $appreciations;
     }
 
     private $idRecipe;
-    private $idAuthor;
+    private $author;
     private $publicationDate;
     private $grade;
     private $commentary;
 
-    public function __construct(?int $id, $idRecipe, $idAuthor, $name, $publicationDate, $grade, $commentary){
+    public function __construct(?int $id, $idRecipe, $author, $name, $publicationDate, $grade, $commentary){
         parent::__construct($id, $name);
         $this->idRecipe = $idRecipe;
-        $this->idAuthor = $idAuthor;
+        $this->author = $author;
         $this-> publicationDate= $publicationDate;
         $this-> grade= $grade;
         $this->commentary = $commentary;
@@ -79,12 +74,12 @@ final class Appreciation extends DbObject {
         $this->idRecipe = $idRecipe;
     }
 
-    public function getIdAuthor() {
-        return $this->idAuthor;
+    public function getAuthor() {
+        return $this->author;
     }
 
-    public function setIdAuthor($idAuthor) {
-        $this->idRecipe = $idAuthor;
+    public function setauthor($author) {
+        $this->author = $author;
     }
 
     public function getPublicationDate() {
@@ -117,7 +112,7 @@ final class Appreciation extends DbObject {
 	 * @return void
 	 */
 	public function insert() {
-        self::$reqManager->execute('insert_row', array($this->getIdRecipe(), $this->getIdAuthor(), $this->getName(), $this->getPublicationDate(), $this->getGrade(), $this->getCommentary()));
+        self::$reqManager->execute('insert_row', array($this->getIdRecipe(), $this->getAuthor()->getId(), $this->getName(), $this->getPublicationDate(), $this->getGrade(), $this->getCommentary()));
 		$this->setId(modele::$pdo->lastInsertId());
 	}
 	
@@ -126,7 +121,7 @@ final class Appreciation extends DbObject {
 	 * @return void
 	 */
 	public function update() {
-        self::$reqManager->execute('update_row', array($this->getIdRecipe(), $this->getIdAuthor(), $this->getName(), $this->getPublicationDate(), $this->getGrade(), $this->getCommentary(), $this->getId()));
+        self::$reqManager->execute('update_row', array($this->getIdRecipe(), $this->getAuthor()->getId(), $this->getName(), $this->getPublicationDate(), $this->getGrade(), $this->getCommentary(), $this->getId()));
 	}
 	
 	/**
@@ -137,7 +132,7 @@ final class Appreciation extends DbObject {
         $row = self::$reqManager->execute('select_row', array($this->getId()))->fetch();
 		$this->setName($row['NAME']);
         $this->setIdRecipe($row['ID_RECIPE']);
-        $this->setIdAuthor($row['ID_AUTHOR']);
+        $this->setAuthor(User::getById($row['ID_AUTHOR']));
         $this->setPublicationDate($row['PUBLICATION_DATE']);
         $this->setGrade($row['GRADE']);
         $this->setCommentary($row['COMMENTARY']);
@@ -155,7 +150,7 @@ final class Appreciation extends DbObject {
         return __CLASS__ . '{' .
             'parent:' . parent::__toString() .
             ', idRecipe=' . $this->getIdRecipe() .
-            ', idAuthor=' . $this->getIdAuthor() .
+            ', author=' . $this->getAuthor() .
             ', publicationDate=' . $this->getPublicationDate() .
             ', grade=' . $this->getGrade() .
             ', commentary=' . $this->getCommentary() .
