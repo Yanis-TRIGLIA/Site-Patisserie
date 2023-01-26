@@ -62,7 +62,7 @@ final class ControleurRecipe
         Difficulty::getById(intval($_POST['difficult'])), Cost::getById(intval($_POST['cost'])),
         $arrayUstensil, $arrayIngredient, null, $_POST['url']);
         $O_recipe->insert();
-        Vue::montrer('recipeCreate/redirectingView',$O_recipe->getId());
+        Vue::montrer('standard/redirectingView',$O_recipe->getId());
     }
 
     public function updateAction($A_urlParams){
@@ -87,7 +87,7 @@ final class ControleurRecipe
         $arrayUstensil, $arrayIngredient, null, $_POST['url']);
 
         $O_recipe->update();
-        Vue::montrer('recipeCreate/redirectingView',$O_recipe->getId());
+        Vue::montrer('standard/redirectingView',$O_recipe->getId());
     }
 
 
