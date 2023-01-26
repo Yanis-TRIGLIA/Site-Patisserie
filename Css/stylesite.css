@@ -1017,7 +1017,30 @@ input[type="button"] {
     margin-bottom: 20px;
 }
 
-/*nav*/
+/*************redirecting view****************/
+
+.redirecting_view_body{
+    justify-content: center;
+    align-items: center;
+
+}
+
+.redirecting_view_home, .redirecting_view_recipe{
+    background-color: #b9b9b9;
+    color: #000;
+    font-size: medium;
+    border-radius: 10%;
+    padding: 1em;
+    border: 2px solid black;
+    outline: none;
+    margin-bottom: 20px;
+    width: 250px;
+}
+.redirecting_view_home {
+    margin-top: 200px;
+    
+}
+
 
 
 /*________________________________________________________________________________________________________________________________________________________________________
