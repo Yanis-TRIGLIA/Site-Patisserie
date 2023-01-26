@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
     </li>
 
     <li style="float:right">
-    <a href="/home" class="link_profile" style="padding-top: 8px">
+    <a href="/home/logout" class="link_profile" style="padding-top: 8px">
     <img class="logout_button" src="https://cdn-icons-png.flaticon.com/512/126/126467.png" width="50" height="50" ">
     </a>
     </li>
