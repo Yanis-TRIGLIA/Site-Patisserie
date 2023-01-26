@@ -912,12 +912,112 @@ input[type="button"] {
 }
 
 
-/*button{
- color:#ddd;
-}*/
+/***********create recipe***********************/
 
 
 
+.recipe_create_name{
+    resize: none;
+    background-color: #b9b9b9;
+    color: #000;
+    font-size: large;
+    border-radius: 10%;
+    padding: 1em;
+    border: 2px solid black;
+    outline: none;
+    height: 30px;
+    width: 100px;
+}
+.recipe_create_Difficult{
+    resize: none;
+    background-color: #b9b9b9;
+    color: #000;
+    border-radius: 10%;
+    padding: 1em;
+    border: 2px solid black;
+    outline: none;
+}
+
+.recipe_create_time{
+    resize: none;
+    background-color: #b9b9b9;
+    color: #000;
+    font-size: medium;
+    border-radius: 10%;
+    padding: 1em;
+    border: 2px solid black;
+    outline: none;
+    height: 20px;
+    width: 100px;
+}
+
+.recipe_create_url{
+    resize: none;
+    background-color: #b9b9b9;
+    color: #000;
+    font-size: large;
+    border-radius: 10%;
+    padding: 1em;
+    border: 1px solid black;
+    outline: none;
+    height: 1%;
+    outline: none;
+}
+
+.recipe_create_ingredients{
+    resize: none;
+    background-color: #b9b9b9;
+    color: #000;
+    font-size: medium;
+    border-radius: 10%;
+    padding: 1em;
+    border: 2px solid black;
+    outline: none;
+    height: 20px;
+    width: 200px;
+}
+.recipe_create_Utensils_list{
+    text-align: left;
+    justify-content: left;
+    
+}
+
+.recipe_create_Utensils_list_checkbox {
+   width: 10px;
+}
+
+
+.recipe_create_description{
+    resize: none;
+    background-color: #b9b9b9;
+    color: #000;
+    font-size: medium;
+    border-radius: 10%;
+    padding: 1em;
+    border: 2px solid black;
+    outline: none;
+}
+.recipe_create_Cost{
+    background-color: #b9b9b9;
+    color: #000;
+    font-size: medium;
+    border-radius: 10%;
+    padding: 1em;
+    border: 2px solid black;
+    outline: none;
+}
+.recipe_create_submit{
+    background-color: #b9b9b9;
+    color: #000;
+    font-size: medium;
+    border-radius: 10%;
+    padding: 1em;
+    border: 2px solid black;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+/*nav*/
 
 
 /*________________________________________________________________________________________________________________________________________________________________________
