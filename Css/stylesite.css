@@ -916,7 +916,7 @@ input[type="button"] {
 
 
 
-.recipe_create_name{
+.recipe_create_name,.recipe_edit_name{
     resize: none;
     background-color: #b9b9b9;
     color: #000;
@@ -928,7 +928,7 @@ input[type="button"] {
     height: 30px;
     width: 100px;
 }
-.recipe_create_Difficult{
+.recipe_create_Difficult,.recipe_edit_Difficult{
     resize: none;
     background-color: #b9b9b9;
     color: #000;
@@ -938,7 +938,7 @@ input[type="button"] {
     outline: none;
 }
 
-.recipe_create_time{
+.recipe_create_time,.recipe_edit_time{
     resize: none;
     background-color: #b9b9b9;
     color: #000;
@@ -951,7 +951,7 @@ input[type="button"] {
     width: 100px;
 }
 
-.recipe_create_url{
+.recipe_create_url,.recipe_edit_url{
     resize: none;
     background-color: #b9b9b9;
     color: #000;
@@ -964,7 +964,7 @@ input[type="button"] {
     outline: none;
 }
 
-.recipe_create_ingredients{
+.recipe_create_ingredients,.recipe_edit_ingredients{
     resize: none;
     background-color: #b9b9b9;
     color: #000;
@@ -976,18 +976,18 @@ input[type="button"] {
     height: 20px;
     width: 200px;
 }
-.recipe_create_Utensils_list{
+.recipe_create_Utensils_list,.recipe_edit_Utensils_list{
     text-align: left;
     justify-content: left;
     
 }
 
-.recipe_create_Utensils_list_checkbox {
+.recipe_create_Utensils_list_checkbox,.recipe_edit_Ustensils_list_checkbox {
    width: 10px;
 }
 
 
-.recipe_create_description{
+.recipe_create_description,.recipe_edit_description{
     resize: none;
     background-color: #b9b9b9;
     color: #000;
@@ -997,7 +997,7 @@ input[type="button"] {
     border: 2px solid black;
     outline: none;
 }
-.recipe_create_Cost{
+.recipe_create_Cost,.recipe_edit_Cost{
     background-color: #b9b9b9;
     color: #000;
     font-size: medium;
@@ -1006,7 +1006,7 @@ input[type="button"] {
     border: 2px solid black;
     outline: none;
 }
-.recipe_create_submit{
+.recipe_create_submit,.recipe_edit_submit{
     background-color: #b9b9b9;
     color: #000;
     font-size: medium;
