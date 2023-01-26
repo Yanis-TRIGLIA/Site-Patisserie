@@ -3,7 +3,7 @@ echo '<head>';
 echo '<link rel="stylesheet" href="/Css/stylesite.css">';
 echo '</head>';
 echo '<div class="container">';
-echo '<form class="login_form">';
+echo '<form class="login_form" method="POST" action="/home/connexion">';
 echo '<p>Connectez Vous!</p>';
 echo '<input class="write" name="login" placeholder="Login">';
 echo '<br>';

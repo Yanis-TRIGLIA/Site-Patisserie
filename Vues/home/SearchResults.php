@@ -1,34 +1,5 @@
 <?php
-echo 
-'<div class="Navigation_bar">
-<link rel="stylesheet" href="/Css/stylesite.css">
-<form method="post" action="/home/search" class="Navigation_bar">
-<ul>
-<li class><a class="backgroundimage" href="https://tpphp1.alwaysdata.net">_ </a></li>
-<li style="float:middle">
-<input class="Search" type="text" name="query" placeholder="Recherche...">
-</li>
-<li style="float:middle">
-<button class="Searchbutton" type="submit"></button>
-</li>
-<li style="float:right">
-<a href="/home/profile" class="link_profile" style="padding-top: 8px">
-<img class="profil_button" src="https://cdn-icons-png.flaticon.com/512/25/25634.png" width="50" height="50" ">
-</a>
-</li>
-
-<li style="float:right">
-<a href="/home" class="link_profile" style="padding-top: 8px">
-<img class="logout_button" src="https://cdn-icons-png.flaticon.com/512/126/126467.png" width="50" height="50" ">
-</a>
-</li>
-
-</ul>
-</form>
-</div>
-<br>
-<br>
-<button id="filter-button" onclick="showFilters()">Filtres</button>
+echo'<button id="filter-button" onclick="showFilters()">Filtres</button>
 <div id="filter-options" style="display: none;">
 <form method="post" action="/home/filter">
 <label for="name">Nom :</label>

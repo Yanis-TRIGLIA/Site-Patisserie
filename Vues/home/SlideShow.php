@@ -1,4 +1,5 @@
 <?php
+
 echo '<link rel="stylesheet" href="Css/stylesite.css">';
 echo'<div id="imagePrincipale">';
 echo'<h1>IUT Gourmand</h1>';
@@ -8,7 +9,7 @@ echo'</div>';
 echo '<h2 class="moment_title">Recette du Moment :</h2>';
 echo '<div class= "Random_recipe">';
 echo '<div class= "recipe_1">';
-echo  "<a href='recipe/defaut/" . $A_vue[0][5] . "'>";
+echo  "<a href='/recipe/defaut/" . $A_vue[0][5] . "'>";
 echo '<img class="Picture_recipe_1" src='.$A_vue[0][0].' alt="'.$A_vue[1].'"/>';
 echo "<p class=small-text>" ."Nom :". $A_vue[0][1] . "</p>";
 echo "<p class=small-text>" . "Difficulter :".$A_vue[0][2] . "</p>";
@@ -16,7 +17,7 @@ echo "<p class=small-text>" ."Durée :". $A_vue[0][3]. "\n"."Min"."</p>";
 echo '</a>';
 echo '</div>';
 echo '<div class= "recipe_2">';
-echo  "<a href='recipe/defaut/" . $A_vue[1][5] . "'>";
+echo  "<a href='/recipe/defaut/" . $A_vue[1][5] . "'>";
 echo '<img class="Picture_recipe_2" src='.$A_vue[1][0].' alt="'.$A_vue[1].'"/>';
 echo "<p class=small-text>" ."Nom :". $A_vue[1][1] . "</p>";
 echo "<p class=small-text>" . "Difficulter :".$A_vue[1][2] . "</p>";
@@ -24,7 +25,7 @@ echo "<p class=small-text>" ."Durée :". $A_vue[1][3]. "\n"."Min"."</p>";
 echo '</a>';
 echo '</div>';
 echo '<div class= "recipe_3">';
-echo  "<a href='recipe/defaut/" . $A_vue[2][5] . "'>";
+echo  "<a href='/recipe/defaut/" . $A_vue[2][5] . "'>";
 echo '<img class="Picture_recipe_3" src='.$A_vue[2][0].' alt="'.$A_vue[1].'"/>';
 echo "<p class=small-text>" ."Nom :". $A_vue[2][1] . "</p>";
 echo "<p class=small-text>" . "Difficulter :".$A_vue[2][2] . "</p>";
