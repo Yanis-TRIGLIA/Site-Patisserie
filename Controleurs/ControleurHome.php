@@ -116,6 +116,48 @@ class ControleurHome
         Vue::montrer('standard/navbar');
         Vue::montrer('home/LogIn');
     }
+
+    public function SignInAction()
+    {
+        // Récupération des données de formulaire
+        $login = $_POST['login_sign'];
+        $password = $_POST['password_sign'];
+        $name = $_POST['name_sign'];
+
+        $user = User::getByLogin($login);
+
+        if ($user->getLogin() == $login) {
+            Vue::montrer('standard/entete');
+            Vue::montrer('standard/navbar');
+            Vue::montrer('home/Register');
+            echo "<h2 align=center style=color:#FF0000>Le Login et déja pris !</h2>";
+        } else if ($user->getHashedPassword() == $password) {
+            Vue::montrer('standard/entete');
+            Vue::montrer('standard/navbar');
+            Vue::montrer('home/Register');
+            echo "<h2 align=center style=color:#FF0000>Le Mot de Passe et déja pris !</h2>";
+        } else  {
+
+            $user->setName($name);
+            $user->setLogin($login);
+            $user->setHashedPassword(password_hash($password, PASSWORD_DEFAULT));
+            $user->setFirstSeen(date("Y-m-d H:i:s"));
+            $user->setLastSeen(date("Y-m-d H:i:s"));
+            $user->setPpUrl(NULL);
+            $user->insert();
+            Vue::montrer('standard/entete');
+            Vue::montrer('standard/navbar');
+            Vue::montrer('home/LogIn');
+        }
+        if($login == " " && $password == " " && $name == " ") {
+            Vue::montrer('standard/entete');
+            Vue::montrer('standard/navbar');
+            Vue::montrer('home/Register');
+        echo "<h2 align=center style=color:#FF0000>Il faut remplir le formulaire</h2>";
+        }
+    }
+
+
     public function connexionAction()
     {
         session_start();
@@ -125,9 +167,12 @@ class ControleurHome
             $user = User::getByLogin($login);
 
             if ($user->getLogin() != $login) {
-                echo "L'utilisateur n'existe pas";
+                Vue::montrer('standard/entete');
+                Vue::montrer('standard/navbar');
+                Vue::montrer('home/LogIn');
+                echo "<h2 align=center style=color:#FF0000>L'utilisateur n'existe pas</h2>";
             } else {
-                if ($user->getHashedPassword() === $password) {
+                if (password_verify($password, $user->getHashedPassword())) {
                     $_SESSION['user'] = $user;
                     echo "Connexion réussie";
                     $nums = array();
@@ -158,11 +203,17 @@ class ControleurHome
                     $array = [$recipe1, $recipe2, $recipe3];
                     Vue::montrer('home/SlideShow', $array);
                 } else {
-                    echo "Mot de passe incorrect";
+                    Vue::montrer('standard/entete');
+                    Vue::montrer('standard/navbar');
+                    Vue::montrer('home/LogIn');
+                    echo "<h2 align=center style=color:#FF0000>Mots de Passe Incorect</h2>";
                 }
             }
         } else {
-            echo "Veuillez remplir tous les champs";
+            Vue::montrer('standard/entete');
+            Vue::montrer('standard/navbar');
+            Vue::montrer('home/LogIn');
+            echo "<h2 align=center style=color:#FF0000>Il faut remplir le formulaire</h2>";
         }
     }
 
@@ -176,7 +227,6 @@ class ControleurHome
         $first_seen = $user->getFirstSeen();
         $last_seen = $user->getLastSeen();
 
-        // Envoi des informations à la vue
         Vue::montrer('standard/entete');
         Vue::montrer('standard/navbar');
         $array = [$name, $login, $image, $first_seen, $last_seen];
@@ -188,6 +238,5 @@ class ControleurHome
         Vue::montrer('standard/entete');
         Vue::montrer('standard/navbar');
         Vue::montrer('home/LogIn');
-        exit;
     }
 }
