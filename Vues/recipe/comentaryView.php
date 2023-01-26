@@ -8,6 +8,6 @@ for($i= 0; $i < sizeof($A_vue);++$i){
     echo '<p class="message_com1">'.$A_vue[$i]->getCommentary().'</p>';
     echo '<p class="note_com1">Note : '.$A_vue[$i]->getGrade().'</p>';
     echo '</div>';
-    echo '<p class="date_publication"><strong>'.$A_vue[$i]->getDate().'</strong></p>';
+    echo '<p class="date_publication"><strong>'.$A_vue[$i]->getPublicationDate().'</strong></p>';
     echo '</div>';
 }
