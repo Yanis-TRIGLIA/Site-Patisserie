@@ -1,21 +1,5 @@
 <?php 
- echo '<div class="Navigation_bar">
- <form method="post" action="/home/search" class="Navigation_bar">
- <ul>
- <li class><a class="backgroundimage" href="https://tpphp1.alwaysdata.net/home">_ </a></li>
- <li style="float:middle">
- <input class="Search" type="text" name="query" placeholder="Recherche...">
- </li>
- <li style="float:middle">
- <button class="Searchbutton" type="submit"></button>
- </li>
- <li style="float:right"><a class="login" href="/home/logIn">se connecter</a></li>
- <li style="float:right"><a class="sigin" href="/home/register">s\'enregistrer</a></li>
- </ul>
-</form>
-</div>
-
-<link rel="stylesheet" href="Css/stylesite.css">
+ echo '<link rel="stylesheet" href="Css/stylesite.css">
 <div class="Title_page_profil">
         <h1 class="Profile"> Profil</h1>
     </div>
