@@ -116,13 +116,6 @@ class ControleurHome
         Vue::montrer('standard/navbar');
         Vue::montrer('home/LogIn');
     }
-    public function profileAction()
-    {
-        Vue::montrer('standard/entete');
-        Vue::montrer('standard/navbar');
-        Vue::montrer('home/profile');
-    }
-
     public function connexionAction()
     {
         session_start();
@@ -171,5 +164,30 @@ class ControleurHome
         } else {
             echo "Veuillez remplir tous les champs";
         }
+    }
+
+    public function profileAction()
+    {
+        // Récupération des informations de l'utilisateur actuellement connecté
+        $user = $_SESSION['user'];
+        $name = $user->getName();
+        $login = $user->getLogin();
+        $image = $user->getPpUrl();
+        $first_seen = $user->getFirstSeen();
+        $last_seen = $user->getLastSeen();
+
+        // Envoi des informations à la vue
+        Vue::montrer('standard/entete');
+        Vue::montrer('standard/navbar');
+        $array = [$name, $login, $image, $first_seen, $last_seen];
+        Vue::montrer('home/profile', $array);
+    }
+    public function logoutAction()
+    {
+        session_destroy();
+        Vue::montrer('standard/entete');
+        Vue::montrer('standard/navbar');
+        Vue::montrer('home/LogIn');
+        exit;
     }
 }
