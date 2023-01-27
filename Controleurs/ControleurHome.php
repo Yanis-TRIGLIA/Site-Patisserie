@@ -1,5 +1,6 @@
 <?php
 session_start();
+define('WP_DEBUG', false);
 
 class ControleurHome
 {
@@ -34,7 +35,7 @@ class ControleurHome
         $array = [$recipe1, $recipe2, $recipe3];
         Vue::montrer('home/SlideShow', $array);
     }
-
+    
     private function averageGrade($O_recipe)
     {
         $average = 0;
