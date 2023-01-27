@@ -10,7 +10,7 @@ echo '<br>';
 echo '<input class="write" name="login_sign" placeholder="Login">';
 echo '<br>';
 echo '<br>';
-echo '<input class="write" name="password_sign" placeholder="Mot de passe">';
+echo '<input type="password" class="write" name="password_sign" placeholder="Mot de passe">';
 echo '<br>';
 echo '<br>';
 echo '<button class="write"value="">Valider L\'inscription</button>';
